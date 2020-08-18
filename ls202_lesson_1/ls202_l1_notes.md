@@ -88,3 +88,72 @@ The most important properties introduced in this lesson are `color`, `background
 
 ## 3. Install Software
 
+## 4. Getting Started
+
+### Read the Tutorial
+
+#### 1. [Building Your First Web Page](https://learn.shayhowe.com/html-css/building-your-first-web-page/)
+
+This tutorial introduces the vocabulary of HTML and CSS and demonstrates a few of the most common tags and rules.
+
+##### Understanding Common HTML Terms:
+
+* While getting started with HTML, you will likely encounter new—and often strange—[terms](http://www.scriptingmaster.com/html/HTML-terms-glossary.asp). Over time you will become more and more familiar with all of them, but the three common HTML terms you should begin with are *elements*, *tags*, and *attributes*.
+* **Elements:** Elements are designators that define the structure and content of objects within a page. Some of the more frequently used elements include multiple levels of headings (identified as `<h1>` through `<h6>` elements) and paragraphs (identified as the `<p>` element); the list goes on to include the `<a>`, `<div>`, `<span>`, `<strong>`, and `<em>` elements, and many more.
+* **Tags:** The use of less-than and greater-than angle brackets surrounding an element creates what is known as a *tag*. Tags most commonly occur in pairs of opening and closing tags.
+* **Attributes:** *Attributes* are properties used to provide additional information about an element. The most common attributes include the `id` attribute, which identifies an element; the `class` attribute, which classifies an element; the `src` attribute, which specifies a source for embeddable content; and the `href` attribute, which provides a hyperlink reference to a linked resource.
+
+##### Setting Up the HTML Document Structure:
+
+* All HTML documents have a required structure that includes the following declaration and elements: `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`.
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      
+    </head>
+    <body>
+      
+    </body>
+  </html>
+  ```
+
+##### Understanding Common CSS Terms
+
+* In addition to HTML terms, there are a few common [CSS terms](http://www.impressivewebs.com/css-terms-definitions/) you will want to familiarize yourself with. These terms include *selectors*, *properties*, and *values*. 
+
+* **Selectors:** 
+
+  * As elements are added to a web page, they may be styled using CSS. A *selector* designates exactly which element or elements within our HTML to target and apply styles (such as color, size, and position) to. Selectors may include a combination of different qualifiers to select unique elements, all depending on how specific we wish to be. For example, we may want to select every paragraph on a page, or we may want to select only one specific paragraph on a page.
+
+  * Selectors generally target an attribute value, such as an `id` or `class` value, or target the type of element, such as `<h1>` or `<p>`.
+
+  * Within CSS, selectors are followed with curly brackets, `{}`, which encompass the styles to be applied to the selected element. The selector here is targeting all `<p>` elements.
+
+    ```css
+    p { ... }
+    ```
+
+* **Properties:**
+
+  * Once an element is selected, a property determines the styles that will be applied to that element. Property names fall after a selector, within the curly brackets, `{}`, and immediately preceding a colon, `:`. There are numerous properties we can use, such as `background`, `color`, `font-size`, `height`, and `width`, and new properties are often added. In the following code, we are defining the `color` and `font-size` properties to be applied to all `<p>` elements.
+
+    ```css
+    p {
+      color: ...;
+      font-size: ...;
+    }
+    ```
+
+* **Values:**
+
+  * So far we’ve selected an element with a selector and determined what style we’d like to apply with a property. Now we can determine the behavior of that property with a value. Values can be identified as the text between the colon, `:`, and semicolon, `;`. Here we are selecting all `<p>` elements and setting the value of the `color` property to be `orange` and the value of the `font-size` property to be `16` pixels.
+
+    ```css
+    p {
+      color: orange;
+      font-size: 16px;
+    }
+    ```
+
