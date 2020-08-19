@@ -157,3 +157,94 @@ This tutorial introduces the vocabulary of HTML and CSS and demonstrates a few o
     }
     ```
 
+##### Working with Selectors:
+
+* The most common types of selectors are: _type_, _class_, and _ID_ selectors.
+
+* **Type Selectors:**
+
+  * *Type* selectors target elements by their element type. For example, should we wish to target all division elements, `<div>`, we would use a type selector of `div`. The following code shows a type selector for division elements as well as the corresponding HTML it selects.
+
+    ###### CSS
+
+    ```css
+    div { ... }
+    ```
+
+    ###### HTML
+
+    ```html
+    <div>...</div>
+    <div>...</div>
+    ```
+
+* **Class Selectors:**
+
+  * *Class* selectors allow us to select an element based on the element’s `class` attribute value. Class selectors are a little more specific than type selectors, as they select a particular group of elements rather than all elements of one type.
+
+  * Class selectors allow us to apply the same styles to different elements at once by using the same `class` attribute value across multiple elements.
+
+  * Within CSS, classes are denoted by a leading period, `.`, followed by the `class` attribute value. Here the class selector will select any element containing the `class` attribute value of `awesome`, including both division and paragraph elements.
+
+    ###### CSS
+
+    ```css
+    .awesome { ... }
+    ```
+
+    ###### HTML
+
+    ```html
+    <div class="awesome">...</div>
+    <p class="awesome">...</p>
+    ```
+
+* **ID Selectors:** 
+
+  * *ID* selectors are even more precise than class selectors, as they target only one unique element at a time. Just as class selectors use an element’s `class` attribute value as the selector, ID selectors use an element’s `id` attribute value as a selector.
+
+  * Regardless of which type of element they appear on, `id` attribute values can only be used once per page. If used they should be reserved for significant elements.
+
+  * Within CSS, ID selectors are denoted by a leading hash sign, `#`, followed by the `id` attribute value. Here the ID selector will only select the element containing the `id` attribute value of `shayhowe`.
+
+    ###### CSS
+
+    ```css
+    #shayhowe { ... }
+    ```
+
+    ###### HTML
+
+    ```html
+    <div id="shayhowe">...</div>
+    ```
+
+##### Referencing CSS:
+
+* In order to get our CSS talking to our HTML, we need to reference our CSS file within our HTML. The best practice for referencing our CSS is to include all of our styles in a single external style sheet, which is referenced from within the `<head>` element of our HTML document. Using a single external style sheet allows us to use the same styles across an entire website and quickly make changes sitewide.
+
+* To create our external CSS style sheet, we’ll want to use our text editor of choice again to create a new plain text file with a `.css` file extension. Our CSS file should be saved within the same folder, or a subfolder, where our HTML file is located.
+
+* Within the `<head>` element of the HTML document, the `<link>` element is used to define the relationship between the HTML file and the CSS file. Because we are linking to CSS, we use the `rel` attribute with a value of `stylesheet` to specify their relationship. Furthermore, the `href` (or hyperlink reference) attribute is used to identify the location, or path, of the CSS file.
+
+* Consider the following example of an HTML document `<head>` element that references a single external style sheet.
+
+  ```html
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  ```
+
+* In order for the CSS to render correctly, the path of the `href` attribute value must directly correlate to where our CSS file is saved. In the preceding example, the `main.css` file is stored within the same location as the HTML file, also known as the root directory.
+* If our CSS file is within a subdirectory or subfolder, the `href` attribute value needs to correlate to this path accordingly. For example, if our `main.css` file were stored within a subdirectory named `stylesheets`, the `href` attribute value would be `stylesheets/main.css`, using a forward slash to indicate moving into a subdirectory.
+
+#### 2. [Getting to Know HTML](https://learn.shayhowe.com/html-css/getting-to-know-html/)
+
+This tutorial discusses some basic HTML concepts, notably semantics, headings, paragraphs, simple HTML-based styling, and the general structure of an HTML document. It also examines hyperlinks and URLs.
+
+
+
+#### 3. [Getting to Know CSS](https://learn.shayhowe.com/html-css/getting-to-know-css/)
+
+This tutorial brings CSS into the mix, introducing the cascade, specificity, selectors, and an assortment of properties.
+
