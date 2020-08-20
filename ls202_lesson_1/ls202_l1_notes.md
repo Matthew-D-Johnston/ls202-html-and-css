@@ -94,7 +94,7 @@ The most important properties introduced in this lesson are `color`, `background
 
 #### 1. [Building Your First Web Page](https://learn.shayhowe.com/html-css/building-your-first-web-page/)
 
-This tutorial introduces the vocabulary of HTML and CSS and demonstrates a few of the most common tags and rules.
+This tutorial introduces the vocabulary of HTML and CSS and demonstrates a few of the most common tags and rules.  
 
 ##### Understanding Common HTML Terms:
 
@@ -240,11 +240,30 @@ This tutorial introduces the vocabulary of HTML and CSS and demonstrates a few o
 
 #### 2. [Getting to Know HTML](https://learn.shayhowe.com/html-css/getting-to-know-html/)
 
-This tutorial discusses some basic HTML concepts, notably semantics, headings, paragraphs, simple HTML-based styling, and the general structure of an HTML document. It also examines hyperlinks and URLs.
+This tutorial discusses some basic HTML concepts, notably semantics, headings, paragraphs, simple HTML-based styling, and the general structure of an HTML document. It also examines hyperlinks and URLs.  
 
+In this lesson we covered the following:
 
+* What semantics are and why they are important
+* `<div>`s and `<span>`s, and the difference between block- and inline-level elements
+* Which text-based elements best represent the content of a page
+* The HTML5 structural elements and how to define the structure and organization of our content and page
+* How to use hyperlinks to navigate between web pages or websites
 
 #### 3. [Getting to Know CSS](https://learn.shayhowe.com/html-css/getting-to-know-css/)
 
-This tutorial brings CSS into the mix, introducing the cascade, specificity, selectors, and an assortment of properties.
+This tutorial brings CSS into the mix, introducing the cascade, specificity, selectors, and an assortment of properties.  
+
+Within this lesson we've discussed the following:
+
+* How style sheets cascade from the top to the bottom of a file
+* What specificity is and how we can calculate it
+* How to combine selectors to target specific elements or groups of elements
+* How to use multiple classes on a single element to layer on different styles for more modular code
+* The different color values available to use within CSS, including keyword, hexadecimal, RGB, and HSL values
+* The different length values available to use within CSS, including pixels, percentages, and em units
+
+---
+
+## 5. Creating an HTML Skeleton
 
