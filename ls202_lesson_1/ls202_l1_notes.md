@@ -267,3 +267,98 @@ Within this lesson we've discussed the following:
 
 ## 5. Creating an HTML Skeleton
 
+Building a new web page often begins with creating an HTML file that contains some minimal HTML. Most developers like to create the skeleton of an HTML file and put it someplace where they can readily use it to create new HTML files without having to write a bunch of boilerplate. We'll call this file your **HTML skeleton** or the **HTML scaffold**.
+
+### Creating the HTML Skeleton
+
+Here's a typical HTML skeleton, based on the simple document you worked on in the Shay Howe tutorial.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>your page title goes here</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+---
+
+## 6. Classes, IDs, and Names
+
+HTML provides three ways to identify certain elements: classes, ids, and names. Any element can use a `class` or `id` attribute, and a variety of elements can use the `name` attribute.
+
+### Classes
+
+The `class` attribute identifies a set of page elements that you wish to style consistently. 
+
+* Use the `class` attribute to assign a class or classes to an element.
+* Any number of elements may belong to the same class.
+* Any element can belong to one or more classes. List all the names separated by spaces in the `class` attribute, e.g., `class="executive management full-time"`.
+* Prefer semantic class names; they should provide meaning. For instance, use `teaching-assistant` rather than `yellow-background`.
+* Use CSS class selectors (`.classname`) to select elements by class, e.g., `.teaching-assistant`.
+* Class selectors have lower CSS specificity than ID selectors (an ID selector overrides a class selector), but higher than tag name selectors (a class selector overrides a tag selector). Thus, the `.teaching-assistant` selector overrides the `tr` selector. See [Getting to Know CSS](https://learn.shayhowe.com/html-css/getting-to-know-css/#cascade).
+
+### IDs
+
+The `id` attribute applies a unique identification string to a single element, such as a headline; no other `id` attributes on the page should have the same ID.
+
+* Use the `id` attribute to assign an ID to an element.
+* Each ID on a page must be unique.
+* Each element can have one ID or none.
+* Use semantic ID names; they should provide meaning. For instance, use an ID name of `headline` rather than `big-font`.
+* Use CSS ID selectors (`#idname`) to select elements by ID, e.g., `#headline`.
+* ID selectors have higher CSS specificity than class selectors (an ID selector can override a class selector).
+
+### Names
+
+We won't use the `name` attribute until much later in this course. For now, all you must know about the `name` attribute is that it ties form elements to data on the server - it typically doesn't play a role in styling. You can use the `[name="field-name"]` selector to select elements by name, but you should use a class or ID selector instead. When you submit a form, the browser sends the form data to the server using name/value pairs in which each name comes from the associated `name` attribute. For instance:
+
+```html
+<form method="get" action="#">
+  <label for="first-name-field">First name:</label>
+  <input type="text" name="first-name" id="first-name-field" />
+
+  <label for="last-name-field">Last name:</label>
+  <input type="text" name="last-name" id="last-name-field" />
+
+  <input type="submit" value="Search" />
+</form>
+```
+
+When you submit this form, the browser constructs a query string that looks like this:
+
+```plaintext
+first-name=Joe&last-name=Jones
+```
+
+Note that the browser does not send the `id` attribute value to the server.  
+
+Since the `for` attribute references an ID (as we'll see later), it's accepted practice to use both a `name` and an `id` on form elements and to use the same value for both:
+
+```html
+<form method="get" action="#">
+  <label for="first-name">First name:</label>
+  <input type="text" name="first-name" id="first-name" />
+
+  <label for="last-name">Last name:</label>
+  <input type="text" name="last-name" id="last-name" />
+
+  <input type="submit" value="Search" />
+</form>
+```
+
+* Use the `name` attribute to assign a name to a form data element that the server can use to obtain the value. 
+* Not all tags accept the `name` attribute; it applies to input controls in forms. Some other elements have a `name` attribute, too, but with a different meaning.
+* Always use a `name` attribute on form elements that accept it.
+* Each name in a form should be unique to that form except for radio buttons and checkboxes that belong to a single group.
+* Use descriptive `name` values, not semantic. For instance, use `name="last-name"` instead of `name="input-field"`.
+* Avoid trying to select elements in CSS by using the `name` attribute.
+
+---
+
+## 7. Practice Problems: Semantics
+
