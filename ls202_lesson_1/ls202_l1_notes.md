@@ -474,3 +474,4 @@ Since the `for` attribute references an ID (as we'll see later), it's accepted p
 
 ## 9. Walkthrough Project: Adding Style to Your Web Page
 
+## 10. Guided Project: A Personal Profile
