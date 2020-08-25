@@ -478,3 +478,311 @@ Since the `for` attribute references an ID (as we'll see later), it's accepted p
 
 ## 11. Practice Problems: Text Formatting
 
+These practice problems focus on HTML and CSS that deal with text, like the font family, style, color, and size.
+
+1. Create an HTML page with a single paragraph of text. Write CSS to set the font size for most elements on the page to 20px (you may ignore headers, subscripts, and other items that often have a different size).
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <title>HTML & CSS Practice</title>
+       <meta charset="utf-8" />
+       <style>
+         body {
+           font-size: 20px;
+         }
+       </style>
+     </head>
+     <body>
+       <p>
+         Both behaviours and attributes are defined within a class, but before any object is created, or instantiated, the behaviours and attributes exist only in potentia; that is, they exist as formal essential possibilities rather than as substantive particular realities. And in this case, contra the existentialists, essence precedes existence.
+       </p>
+     </body>
+   </html>
+   ```
+
+2. Change the font family for the page from the previous problem to a sans-serif font.
+
+   ```css
+   <style>
+     body {
+       font-size: 20px;
+       font-family: Arial, Helvetica, sans-serif;
+     }
+   </style>
+   ```
+
+3. Change the CSS for the previous problem to give the browser a choice one of three fonts (Tahoma, Trebuchet MS, Verdana), depending on what is available, before it uses the default sans-serif font.
+
+   ```html
+   <style>
+     body {
+       font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       font-size: 20px;
+     }
+   </style>
+   ```
+
+4. Change the text from the previous problem to italic.
+
+   ```html
+   <style>
+     body {
+       font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       font-size: 20px;
+       font-style: italic;
+     }
+   </style>
+   ```
+
+5. Change the CSS from the previous problem to boldface (keep the italics).
+
+   ```html
+   <style>
+     body {
+       font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       font-size: 20px;
+       font-style: italic;
+       font-weight: bold;
+     }
+   </style>
+   ```
+
+6. Change the CSS from the previous problem to increase the line height to 2.5 times its default height.
+
+   ```html
+   <style>
+     body {
+       font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       font-size: 20px;
+       font-style: italic;
+       font-weight: bold;
+     }
+   </style>
+   ```
+
+7. Change the CSS you wrote in questions 1-6 to a shorthand form that uses precisely one property. The output should not change.
+
+   ```html
+   <style>
+     body {
+       /*        font-size: 20px;
+       font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       font-style: italic;
+       font-weight: bold;
+       line-height: 2.5;*/
+       font: italic bold 20px/2.5 Tahoma, "Trebuchet MS", Verdana, sans-serif;
+     }
+   </style>
+   ```
+
+8. Change the CSS from the previous problem to right-align the text within the paragraph:
+
+   ```html
+   <style>
+     body {
+       /*        font-size: 20px;
+       font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       font-style: italic;
+       font-weight: bold;
+       line-height: 2.5;*/
+       font: italic bold 20px/2.5 Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       text-align: right;
+     }
+   </style>
+   ```
+
+9. Change the CSS from the previous problem to center-align the text within the paragraph:
+
+   ```html
+   <style>
+     body {
+       /*        font-size: 20px;
+       font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       font-style: italic;
+       font-weight: bold;
+       line-height: 2.5;*/
+       font: italic bold 20px/2.5 Tahoma, "Trebuchet MS", Verdana, sans-serif;
+       text-align: center;
+     }
+   </style>
+   ```
+
+10. Change the CSS from the previous problem to fully justify the text within the paragraph:
+
+    ```html
+    <style>
+      body {
+        /*        font-size: 20px;
+        font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+        font-style: italic;
+        font-weight: bold;
+        line-height: 2.5;*/
+        font: italic bold 20px/2.5 Tahoma, "Trebuchet MS", Verdana, sans-serif;
+        text-align: justify;
+      }
+    </style>
+    ```
+
+11. Change the CSS from the previous problem to indent the start of the paragraph by 4em.
+
+    ```html
+    <style>
+      body {
+        /*        font-size: 20px;
+        font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+        font-style: italic;
+        font-weight: bold;
+        line-height: 2.5;*/
+        font: italic bold 20px/2.5 Tahoma, "Trebuchet MS", Verdana, sans-serif;
+        text-align: justify;
+        text-indent: 4em;
+      }
+    </style>
+    ```
+
+12. Write the CSS needed to reproduce this screenshot:
+
+    (screenshot not copied)
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>HTML & CSS Practice</title>
+        <meta charset="utf-8" />
+        <style>
+          body {
+            font: normal 14px Helvetica, Arial, sans-serif;
+          }
+    
+          h1 {
+            font-family: Georgia, serif;
+          }
+    
+          code {
+            font-family: monospace;
+            font-style: italic;
+            text-decoration: underline;
+          }
+        </style>
+      </head>
+      <body>
+        <article>
+          <header>
+            <h1>Finessing `feColorMatrix`</h1>
+          </header>
+          <p>
+            Harness the power of <code>feColorMatrix</code> to create detailed
+            filters, with Una Kravets as your guide.
+          </p>
+        </article>
+      </body>
+    </html>
+    ```
+
+13. Change the CSS from the previous problem to display the `h1` element text in blue, and the `code` text in green.
+
+    ```html
+    <style>
+      body {
+        font: normal 14px Helvetica, Arial, sans-serif;
+      }
+    
+      h1 {
+        font-family: Georgia, serif;
+        color: blue;
+      }
+    
+      code {
+        font-family: monospace;
+        font-style: italic;
+        text-decoration: underline;
+        color: green;
+      }
+    </style>
+    ```
+
+14. Write the CSS needed to reproduce this screenshot:
+
+    (screenshot not copied)
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>HTML & CSS Practice</title>
+        <meta charset="utf-8" />
+        <style>
+          body {
+            font-size: 18px;
+          }
+    
+          mark {
+            background-color: yellow;
+            font-family: Courier, monospace;
+            font-size: 12px;
+          }
+    
+          strong {
+            font-size: 15px;
+          }
+    
+          em {
+            font-size: 20px;
+            text-transform: uppercase;
+          }
+        </style>
+      </head>
+      <body>
+        <p>That episode was <mark>un<strong>be<em>lieve</em></strong>able</mark>!</p>
+      </body>
+    </html>
+    ```
+
+15. Create some HTML with this paragraph:
+
+    ```html
+    <p>
+      The Creating Hyperlinks section of Getting to Know HTML discusses
+      hyperlinks, or anchors. Be sure to work both "In Practice" sections; they
+      pick up from where you left off in an earlier reading assignment.
+    </p>
+    ```
+
+    Convert the text `Getting to know HTML` to a hypertext link to this URL:
+
+    ```plaintext
+    http://learn.shayhowe.com/html-css/getting-to-know-html/#creating-hyperlinks
+    ```
+
+    The link should open in a new browser tab or window. Add CSS to remove the underline and change the color to red.
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>HTML & CSS Practice</title>
+        <meta charset="utf-8" />
+        <style>
+          a {
+            color: red;
+            text-decoration: none;
+          }
+        </style>
+      </head>
+      <body>
+        <p>
+          The Creating Hyperlinks section of <a href="http://learn.shayhowe.com/html-css/getting-to-know-html/#creating-hyperlinks" target="_blank">Getting to Know HTML</a> discusses
+          hyperlinks, or anchors. Be sure to work both "In Practice" sections; they
+          pick up from where you left off in an earlier reading assignment.
+        </p>
+      </body>
+    </html>
+    ```
+
+---
+
+## 12. On Your Own: Creating a Simple Page
+
