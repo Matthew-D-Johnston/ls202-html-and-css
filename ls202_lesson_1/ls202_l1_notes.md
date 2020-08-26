@@ -786,3 +786,14 @@ These practice problems focus on HTML and CSS that deal with text, like the font
 
 ## 12. On Your Own: Creating a Simple Page
 
+## 13. Practice Problems: CSS Selectors
+
+1. Set the width of the page body to `600px`.
+
+   ```html
+   
+   ```
+
+   
+
+2. 
