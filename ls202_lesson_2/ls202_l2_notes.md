@@ -341,5 +341,275 @@ The important takeaways here are:
 
 4. Given the code below, what is the minimum width and height (in pixels) that the `div` needs to be to entirely contain the `article` element (including its margins)?
 
+   ```html
+   <div>
+     <article>content</article>
+   </div>
+   ```
 
+   ```css
+   div {
+     background-color: lightgray;
+     border: 1px solid black;
+     box-sizing: border-box;
+     display: inline-block;
+     margin: 0;
+     padding: 0;
+   }
+   
+   article {
+     border: 4px solid red;
+     box-sizing: border-box;
+     display: inline-block;
+     height: 300px;
+     margin: 20px 19px 10px 11px;
+     padding: 10px 20px;
+     width: 500px;
+   }
+   ```
+
+   ###### My Solution
+
+   Minimum width: 500 + 19 + 11 = 530  
+
+   Minimum height: 300 + 20 + 10 = 330
+
+   ###### LS Solution
+
+   Since the `article` is `inline-block`, we can compute the dimensions directly from the CSS properties. Since we also set the `box-sizing` property to `border-box`, we must ignore the padding and border to calculate the actual dimensions. The element needs 532 pixels horizontally:
+
+   - 500 pixels for the width
+   - 0 pixels for the left and right borders
+   - 0 pixels for the left and right padding
+   - 11 pixels for the left margin
+   - 19 pixels for the right margin
+   - 2 pixels for the left and right borders of the `div`
+
+   It needs 332 pixels vertically:
+
+   - 300 pixels for the height
+   - 0 pixels for the top and bottom borders
+   - 0 pixels for the top and bottom padding
+   - 20 pixels for the top margin
+   - 10 pixels for the bottom margin
+   - 2 pixels for the top and bottom borders of the `div`
+
+   Since the `div` uses `box-sizing`, it must have a `width` of at least 532px and a height of at least 332px.
+
+5. Given the code below:
+
+   ```html
+   <div>
+     <tag1>content</tag1><tag2>content</tag2>
+   </div>
+   ```
+
+   ```css
+   div {
+     background-color: lightgray;
+     border: 1px solid black;
+     box-sizing: content-box;
+     display: inline-block;
+     margin: 0;
+     padding: 0;
+     width: 720px;
+   }
+   
+   tag1, tag2 {
+     box-sizing: border-box;
+     height: 240px;
+     margin: 0;
+     padding: 0;
+     width: 360px;
+   }
+   
+   tag1 {
+     background-color: yellow;
+   }
+   
+   tag2 {
+     background-color: lime;
+   }
+   ```
+
+   Which of the following element pairs will display side-by-side in the `<div>`? Select all that apply:
+
+   1. Both elements are `block` elements.
+   2. Both elements are `inline` elements.
+   3. Both elements are `inline-block` elements.
+   4. One element is a `block` element, and one is an `inline` element.
+   5. One element is a `block` element, and one is an `inline-block` element.
+   6. One element is an `inline` element, and one is an `inline-block` element.
+
+   ###### My Solution
+
+   1. No (correct)
+   2. Yes (correct)
+   3. Yes (uncertain)
+   4. Yes (incorrect)
+   5. No (uncertain)
+   6. Yes (uncertain)
+
+   ###### LS Solution
+
+   Combinations (2), (3), and (6) will all appear side-by-side. The other three combinations have `block` elements which never appear side-by-side with anything.
+
+6. Will the following code display the two article boxes side-by-side? If not, why not? How would you fix it so that it places the boxes side-by-side?
+
+   ```html
+   <section>
+   	<article>content</article><article>more content</article>
+   </section>
+   ```
+
+   ```css
+   section {
+     background-color: yellow;
+     border: 1px solid red;
+     box-sizing: content-box;
+     display: inline-block;
+     height: 400px;
+     margin: 0px;
+     padding: 20px;
+     width: 900px;
+   }
+   
+   article {
+     background-color: lime;
+     border: 1px solid blue;
+     height: 100%;
+     margin: 0;
+     padding: 10px;
+     width: 50%;
+   }
+   ```
+
+   ###### My Solution
+
+   No, the two article boxes will not fit side-by-side, because they are both block elements. If we change the `display` property in the `article` element selector to `inline-block` and adjust the `width` property to a maximum `428px` then the two article boxes will appear side-by-side.
+
+   ###### LS Solution
+
+   The browser won't display the article boxes side-by-side since they are `block` elements. Even if we could place the `block` elements side-by-side, they won't fit inside the section because the total width of each article is 50% of the width plus 22 pixels for its padding and border.
+
+   The first change we must make is to add `display: inline-block;` to the CSS `article` selector, which lets us position two or more articles side-by-side, provided there is room. To make them fit, we must set the actual width (including padding and the border) to 50% of the available space, so we also add `box-sizing: border-box;` to the `article` selector.  
+
+   ```css
+   article {
+     background-color: lime;
+     border: 1px solid blue;
+     box-sizing: border-box;
+     display: inline-block;
+     height: 100%;
+     margin: 0;
+     padding: 10px;
+     width: 50%;
+   }
+   ```
+
+7. **Challenge.** Given our solution to the previous question, what will happen if we put the `article` tags on separate lines?
+
+   ```html
+   <section>
+     <article>content</article>
+     <article>more content</article>
+   </section>
+   ```
+
+   Try to figure out the answer without peeking. Why do you think this is?
+
+   ###### My Solution
+
+   It should not have any affect on the outcome. Putting elements on newlines within html code does not affect the structure of the html and its display by the browser.
+
+   ###### LS Solution
+
+   When you put the `article` elements on separate lines in the HTML, the browser sees the whitespace (a newline and several spaces in this case) between the two articles. It then collapses that whitespace into a single space character and uses the result as content between the elements. Thus, the two articles require 900 pixels total plus a few more pixels to account for the space character. Since that exceeds the 900-pixel width of the `section`, the two `article`s no longer fit on the same line.
+
+   This kind of problem often occurs when one of the elements is an inline-block; the rest of the time, the extra space typically doesn't matter. Aside from placing the two tags up against each other to eliminate the whitespace, there are several other techniques you will see later that let you remove the space or make it invisible.
+
+---
+
+## 6. Padding and Margins
+
+### What is the Difference Between Padding and Margins?
+
+* Both padding and margins surround elements with whitespace. Padding lies inside the border, while margins lie outside it. What if you don't have one? You do - it has zero-width, so it's an invisible border, but the browser knows it's there and uses it in the box model.
+* Margins are typically transparent, while the padding is opaque.
+* Put another way, padding is part of the visible and clickable bounds of an element, while a margin is spacing between adjacent elements. It's easy to see this with clickable elements. If you click on the content area or anywhere in the padding or border, the browser will process the click. If you click on the margin, nothing happens.
+
+#### Margins, Padding, and Backgrounds
+
+* The background of an element appears in the padding area, while that of a container shows through the contained element's margins.
+
+#### Top and Bottom Margins and Padding on Inline Elements
+
+* As we learned earlier, the browser doesn't use the top and bottom margins and padding for `inline` elements for spacing. New developers often forget this, which leads to headaches as they try to figure out why the margins or padding aren't working the way they expect. No matter how big the top and bottom margins are on an `inline` element, they do not affect the placement of the element's content nor the content surrounding it. See the example under *Borders, Padding, and Inline Elements* in *The Visual Formatting Model* assignment.
+
+#### Margin Collapse
+
+* An even bigger difference between margins and padding is that top and bottom margins "collapse" between `block` elements. If you position two adjacent `block's one above the other, the margin between them isn't the sum of the bottom margin of the first and the top margin of the second. Instead, the margin collapses to the larger of the two margins in question. For instance, assume that we have the following HTML:
+
+  ```html
+  <p>This is the first sentence</p>
+  <p>This is the second sentence</p>
+  ```
+
+  We also have the following CSS:
+
+  ```css
+  p {
+    margin-bottom: 15px;
+    margin-top: 32px;
+  }
+  ```
+
+  The spacing between the two paragraphs won't be 47 pixels--it'll be 32 pixels.
+
+* Margin collapse occurs with top and bottom margins, not with left and right margins. Padding does not collapse.
+
+### Should I Use Padding or Margins?
+
+There's no firm answer to this question, but one useful strategy is to use margins for spacing between elements, and padding to affect the visible or clickable area of one. Within a container, use padding for horizontal separation between its edges and content, and margins for the vertical distance.  
+
+This approach works well but sometimes leaves you wondering about the correct choice. Another technique is to use margins everywhere except when you need padding. You probably need to use padding when:
+
+- You want to change the height or width of a border.
+- You want to adjust how much background is visible around an element.
+- You want to alter the amount of clickable area.
+- You want to avoid margin collapse.
+- You want some horizontal spacing to the left or right of an `inline` element.
+- As before, use padding to separate the left and right sides of a container from its content. Use margins for the vertical gap.
+
+This approach is a simple mechanical process: ask yourself whether any of the above options apply to the element. If any do, use padding to provide those features. Otherwise, use margins. This strategy doesn't guarantee that you will make the correct choice between padding and margins in every situation. However, it should help you choose the right property most of the time.
+
+---
+
+## 7. Dimensions
+
+Some CSS properties require lengths as property values to provide the size of some detail on the page. For instance, we've used the `width`, `height`, `margin`, `padding`, and `border` properties to specify the characteristics of element boxes and their attributes. We've also seen a few instances of using `font-size` to specify the text size. Each of these properties includes a length specification, such as `12px`, `3rem`, or `50%`; we call these values **measurements** or **dimensions**. We also call `px`, `rem`, `%`, etc. **measurement units** or **units**.
+
+### When to Use the Different Units
+
+Trying to decide which dimensional units you should use is sometimes difficult. Here are some general guidelines - none of these are absolute, and you will almost certainly find developers that disagree:
+
+- Use absolute units sparingly, and stick with pixels. Pixels work well for:
+  - the root font size
+  - image widths and heights
+  - top and bottom margins and padding, sometimes useful with left and right margins and padding
+  - width or height of fixed-width/fixed-height containers such as navigation sidebars
+  - border widths
+- Use relative units liberally:
+  - Use rems for fonts, possibly with a fallback to ems or pixels. The root font should use pixels.
+  - If you must use ems instead of rems, try to avoid compounding font sizes.
+  - Use rems, ems, or pixels for left and right margins and padding.
+  - Use `%` for measurements that are proportional to the container element's width or height. Percentages work best for container dimensions and come in handy when you want certain areas of the page to grow and shrink as the width of the browser window changes.
+  - Use `auto` with `width` and `height` to let the browser calculate an appropriate value.
+  - Use `auto` with left and right margins to left, center, or right justify a block element within its container.
+
+You can ignore or break any of these rules when appropriate. We violate them often in this course.
+
+---
+
+## 8. Practice Problems: Spacing and Dimensions
 
