@@ -544,7 +544,423 @@ nav li {
    }
    ```
 
+---
+
+## 4. Tables Overview
+
+## 5. Practice Problems: Tables
+
+1. Create a table with column headings for "Product," "Quantity," and "Price." Fill the table with this data:
+
+   ```plaintext
+   Apple, 34, $3.99/lb
+   Banana, 116, $1.69/lb
+   Carrot, 42, $2.49/lb
+   Kiwi, 18, $0.69 ea.
+   ```
+
+   **How it should look in the browser:**
+
+   ![Produce prices](https://d3jtzah944tvom.cloudfront.net/lesson_2/exercises_basic_html/t1.jpg)
+
+   ###### My Solution
+
+   ```html
+   <table>
+     <tr>
+       <th>Product</th>
+       <th>Quantity</th>
+       <th>Price</th>
+     </tr>
+   
+     <tr>
+       <td>Apple</td>
+       <td>34</td>
+       <td>$3.99/lb</td>
+     </tr>
+   
+     <tr>
+       <td>Banana</td>
+       <td>116</td>
+       <td>$1.69/lb</td>
+     </tr>
+   
+     <tr>
+       <td>Carrot</td>
+       <td>42</td>
+       <td>$2.49/lb</td>
+     </tr>
+   
+     <tr>
+       <td>Kiwi</td>
+       <td>18</td>
+       <td>$0.69 ea.</td>
+     </tr>
+   </table>
+   ```
+
+   ###### LS Solution
+
+   ```html
+   <table>
+     <thead>
+       <tr>
+         <th>Product</th>
+         <th>Quantity</th>
+         <th>Price</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>Apple</td>
+         <td>34</td>
+         <td>$3.99/lb</td>
+       </tr>
+       <tr>
+         <td>Banana</td>
+         <td>116</td>
+         <td>$1.69/lb</td>
+       </tr>
+       <tr>
+         <td>Carrot</td>
+         <td>42</td>
+         <td>$2.49/lb</td>
+       </tr>
+       <tr>
+         <td>Kiwi</td>
+         <td>18</td>
+         <td>$0.69 ea.</td>
+       </tr>
+     </tbody>
+   </table>
+   ```
+
+2. Update your solution to the previous problem to make the background color of the entire table cyan.
+
+   ###### My Solution
+
+   ```css
+   <style>
+     table {
+   		background-color: cyan;
+     }
+   </style>
+   ```
+
    
 
+3. Update your solution to the previous problem to make the background color of the individual data cells orange.
+
+   ###### My Solution
+
+   ```css
+   td {
+     background-color: orange;
+   }
+   ```
+
+4. The background color of the table in the previous problem bleeds through as a border around the data cells. Update your solution to remove that border.
+
+   ###### My Solution
+
+   ```css
+   table {
+     border-collapse: collapse;
+   }
+   ```
+
+5. Update your solution to the previous problem to change the background color for the Banana and Kiwi rows to yellow.
+
+   ###### My Solution
+
+   Technique 1:
+
+   ```html
+   <table>
+    ...
+     
+      <tr class="banana">
+        <td>Banana</td>
+        <td>116</td>
+        <td>$1.69/lb</td>
+      </tr>
+    ...
+     
+      <tr class="kiwi">
+        <td>Kiwi</td>
+        <td>18</td>
+        <td>$0.69 ea.</td>
+      </tr>
+   </table>
+   ```
+
+   ```css
+   .banana td,
+   .kiwi td {
+     background-color: yellow;
+   }
+   ```
+
+   Technique 2:
+
+   ```css
+   tr:nth-child(2) td,
+   tr:nth-child(4) td {
+     background-color: yellow;
+   }
+   ```
+
+   ###### LS Solution
+
+   Technique 1:
+
+   ```html
+   <tr class="odd-row">
+     <td>Apple</td>
+     <td>34</td>
+     <td>$3.99/lb</td>
+   </tr>
+   <tr class="even-row">
+     <td>Banana</td>
+     <td>116</td>
+     <td>$1.69/lb</td>
+   </tr>
+   <tr class="odd-row">
+     <td>Carrot</td>
+     <td>42</td>
+     <td>$2.49/lb</td>
+   </tr>
+   <tr class="even-row">
+     <td>Kiwi</td>
+     <td>18</td>
+     <td>$0.69 ea.</td>
+   </tr>
+   ```
+
+   ```css
+   /* delete this rule
+   td {
+     background-color: orange;
+   }
+   */
+   
+   .odd-row {
+     background-color: orange;
+   }
+   
+   .even-row {
+     background-color: yellow;
+   }
+   ```
+
+   Technique 2:  
+
+   Our solution relies on giving each row a class name that varies depending on the color we want to assign to the row. A more reliable solution that doesn't need classes uses the `:nth-child()` pseudo-class that we introduced in the previous assignment:
+
+   ```css
+   tbody tr:nth-child(2n+1) {
+     background-color: orange;
+   }
+   
+   tbody tr:nth-child(2n+2) {
+     background-color: yellow;
+   }
+   ```
+
+   This variation of `:nth-child()` uses the `2n+` part of the parameter to select every other row.
+
+6. Create a table with both column and row headings. Use "Name," "Major," and "GPA" for the columns, and student names for the rows. Be sure to tell the browser which headings are for columns and which are for rows.
+
+   ```plaintext
+   Chris Lee, Supply Chain Management, 3.7
+   Shane Riley, Photojournalism, 3.8
+   Kevin Wang, Computer Science, 4.0
+   ```
+
+   **How it should look in the browser:**
+
+   ![College records](https://d3jtzah944tvom.cloudfront.net/lesson_2/exercises_basic_html/t2.jpg)
+
+   ###### My Solution
+
+   ```html
+   <table>
+     <thead>
+       <tr>
+         <th>Name</th>
+         <th>Major</th>
+         <th>GPA</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <th>Chris Lee</th>
+         <td>Supply Chain Management</td>
+         <td>3.7</td>
+       </tr>
+       <tr>
+         <th>Shane Riley</th>
+         <td>Photojournalism</td>
+         <td>3.8</td>
+       </tr>
+       <tr>
+         <th>Kevin Wang</th>
+         <td>Computer Science</td>
+         <td>4.0</td>
+       </tr>
+     </tbody>
+   </table>
+   ```
+
+   ###### LS Solution
+
+   ```html
+   <table>
+     <thead>
+       <tr>
+         <th scope="col">Name</th>
+         <th scope="col">Major</th>
+         <th scope="col">GPA</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <th scope="row">Chris Lee</th>
+         <td>Supply Chain Management</td>
+         <td>3.7</td>
+       </tr>
+       <tr>
+         <th scope="row">Shane Riley</th>
+         <td>Photojournalism</td>
+         <td>3.8</td>
+       </tr>
+       <tr>
+         <th scope="row">Kevin Wang</th>
+         <td>Computer Science</td>
+         <td>4.0</td>
+       </tr>
+     </tbody>
+   </table>
+   ```
+
+   Don't forget to provide the `scope` attributes!
+
+7. Without adding anything to the HTML, update the solution to the previous problem to set the column headings to green, and the row headings to blue.
+
+   ###### My Solution
+
+   ```css
+   [scope="col"] {
+     color: green;
+   }
+   
+   [scope="row"] {
+     color: blue;
+   }
+   ```
+
+   ###### LS Solution
+
+   Same.
+
+8. For this table, our data has categories to create subsets of data within the same table. We need "Type," "Name," and "Price" column headings. Each row represents one of three different wine types. All rows that share a wine type should use the same row heading. Your result should look like the image below.
+
+   ```plaintext
+   Red    Meiomi Pinot Noir             $17.99
+          Radius Cabernet               $9.99
+          Apothic Red                   $7.97
+   White  Cloud Break Chardonnay        $8.99
+          Kendall Jackson Chardonnay    $9.97
+          Kim Crawford Sauvignon Blanc  $9.97
+   Sake   Gekkeikan Sake                $9.99
+          Mura Mura Mountain Sake       $15.99
+          TY KU Sake Junmai Ginjo Black $21.99
+   ```
+
+   **How it should look in the browser:**
+
+   ###### ![Wine prices](https://d3jtzah944tvom.cloudfront.net/lesson_2/exercises_basic_html/t3.jpg)
+
+   ###### My Solution
+
+   ```html
+   <table>
+     <thead>
+       <tr>
+         <th scope="col">Type</th>
+         <th scope="col">Name</th>
+         <th scope="col">Price</th>
+       </tr>
+     </thead>
+     <body>
+       <tr>
+         <th scope ="row" rowspan="3">Red</th>
+         <td>Meiomi Pinot Noir</td>
+         <td>$17.99</td>
+       </tr>
+       <tr>
+         <td>Radius Cabernet</td>
+         <td>$9.99</td>
+       </tr>
+       <tr>
+         <td>Apothic Red</td>
+         <td>$7.97</td>
+       </tr>
+   
+       <tr>
+         <th scope="row" rowspan="3">White</th>
+         <td>Cloud Break Chardonnay</td>
+         <td>$8.99</td>
+       </tr>
+       <tr>
+         <td>Kendall Jackson Chardonnay</td>
+         <td>$9.97</td>
+       </tr>
+       <tr>
+         <td>Kim Crawford Sauvignon Blanc</td>
+         <td>$9.97</td>
+       </tr>
+   
+       <tr>
+         <th scope="row" rowspan="3">Sake</th>
+         <td>Gekkeikan Sake</td>
+         <td>$9.99</td>
+       </tr>
+       <tr>
+         <td>Mura Mura Mountain Sake</td>
+         <td>$15.99</td>
+       </tr>
+       <tr>
+         <td>TY KU Sake Junmai Ginjo Black</td>
+         <td>$21.99</td>
+       </tr>
+     </body>
+   </table>
+   ```
+
+   ###### LS Solution
+
+   Basically the same.
+
+9. It's difficult to tell which wines apply to each type in the output of the previous problem. Update your solution to display a 1-pixel wide gray border around all the table's cells and headings.
+
+###### My Solution
+
+```css
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid gray;
+}
+```
+
+###### LS Solution
+
+Basically the same.
+
 ---
+
+## 6. On Your Own: Nutrition Facts Label
 
