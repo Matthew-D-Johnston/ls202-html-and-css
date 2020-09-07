@@ -37,9 +37,11 @@
         box-sizing: border-box;
         width: 96%;
         margin: 0 15px;
+        border-collapse: collapse;
       }
 
-      main section:nth-child(1) table thead th {
+      /*1st Table*/
+      main section:nth-child(1) table thead tr th {
         text-align: left;
         height: 40px;
         border-bottom: 2px solid grey;
@@ -47,12 +49,12 @@
         font-size: 1.7rem;
       }
 
-      main section:nth-child(1) table tbody td {
+      main section:nth-child(1) table tbody tr td {
         font-family: Helvetica;
         font-size: 2.24rem;
       }
 
-      main section:nth-child(1) table tbody td:nth-child(2) {
+      main section:nth-child(1) table tbody tr td:nth-child(2) {
         text-align: right;
       }
 
@@ -62,6 +64,69 @@
         width: 96%;
         margin-top: 0;
       }
+
+      /*2nd Table*/
+
+      main section:nth-child(2) table thead tr th {
+        text-align: right;
+        border-bottom: 2px solid grey;
+        font-family: Helvetica;
+        font-size: 1.7rem;
+        padding-bottom: 6px;
+      }
+
+      main section:nth-child(2) table tbody tr td {
+        font-family: Helvetica;
+        font-size: 2.24rem;
+      }
+
+      main section:nth-child(2) table tbody tr td:nth-child(3),
+      main section:nth-child(2) table tbody tr:nth-child(1) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(4) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(5) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(6) td:nth-child(2) {
+          text-align: right;
+      }
+
+      main section:nth-child(2) table tbody tr:nth-child(2) td:nth-child(1) {
+        width: 35px;
+      }
+
+      main section:nth-child(2) table tbody tr:nth-child(2) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(2) td:nth-child(3) {
+        border-top: 2px solid grey;
+      }
+
+      main section:nth-child(2) table tbody tr:nth-child(3) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(3) td:nth-child(3) {
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
+      }
+
+      main section:nth-child(2) table tbody tr:nth-child(4) td:nth-child(1),
+      main section:nth-child(2) table tbody tr:nth-child(4) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(5) td:nth-child(1),
+      main section:nth-child(2) table tbody tr:nth-child(5) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(6) td:nth-child(1),
+      main section:nth-child(2) table tbody tr:nth-child(6) td:nth-child(2) {
+        border-bottom: 2px solid grey;
+      }
+
+      main section:nth-child(2) table tbody tr:nth-child(7) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(7) td:nth-child(3),
+      main section:nth-child(2) table tbody tr:nth-child(8) td:nth-child(2),
+      main section:nth-child(2) table tbody tr:nth-child(8) td:nth-child(3) {
+        border-bottom: 2px solid grey;
+      }
+
+      main section:nth-child(2) hr {
+        box-sizing: border-box;
+        border: 15px solid black;
+        width: 96%;
+      }
+
+      /*3rd Table*/
+
     </style>
   </head>
   <body>
@@ -72,20 +137,86 @@
       <hr/>
     </header>
     <main>
+
       <section>
         <table>
           <thead>
-            <th colspan="2">Amount Per Serving</th>
+            <tr>
+              <th colspan="2">Amount Per Serving</th>
+            </tr>
           </thead>
           <tbody>
-            <td><b>Calories</b> 230</td>
-            <td>Calories from Fat 40</td>
+            <tr>
+              <td><b>Calories</b> 230</td>
+              <td>Calories from Fat 40</td>
+            </tr>
           </tbody>
         </table>
         <hr/>
       </section>
 
       <section>
+        <table>
+
+          <thead>
+            <tr>
+              <th colspan="3">% Daily Value*</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td colspan="2"><b>Total Fat</b> 8g</td>
+              <td><b>12</b>%</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>Saturated Fat 1g</td>
+              <td><b>5</b>%</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><i>Trans</i> Fat 1g</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><b>Cholesterol</b> 0mg</td>
+              <td><b>0</b>%</td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><b>Sodium</b> 160mg</td>
+              <td><b>7</b>%</td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><b>Total Carbohydrate</b> 37g</td>
+              <td><b>12</b>%</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>Dietary Fiber 4g</td>
+              <td><b>16</b>%</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>Sugars 1g</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><b>Protein</b> 3g</td>
+              <td></td>
+            </tr>
+          </tbody>
+
+        </table>
+        <hr/>
       </section>
 
       <section>
