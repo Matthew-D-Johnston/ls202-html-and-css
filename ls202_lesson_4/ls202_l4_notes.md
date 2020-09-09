@@ -1,4 +1,4 @@
-##### LS202 HMTL and CSS > Lesson 4: Lists and Tables
+##### LS202 HTML and CSS > Lesson 4: Lists and Tables
 
 ---
 
