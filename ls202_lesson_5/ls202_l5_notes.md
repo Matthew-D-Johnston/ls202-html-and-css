@@ -479,3 +479,5 @@ By default, `select` lets the user choose precisely one option or leave the opti
 
 ## 6. Form Layouts
 
+## 7. Practice Problems: Forms
+
