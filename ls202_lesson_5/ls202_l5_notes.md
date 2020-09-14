@@ -1188,3 +1188,401 @@ By default, `select` lets the user choose precisely one option or leave the opti
 
 ## 8. Walkthrough Project: Contact Form
 
+In this project, you'll create a contact form with a variety of controls. Our intent here is for you to follow along with the accompanying videos, but after you've tried to complete as much as you can using the steps outlined below. Whether you do the project entirely on your own or need lots of help doesn't matter; what matters is that you try. If you do manage to finish on your own, watch the videos anyway, and compare your solution with ours.
+
+1. Create a web page that contains a contact form. Using your newly acquired knowledge, create the label and input fields for a first name, last name, email address, city, state, and zip code. Each input field can appear on a separate line.
+2. Assume that users are from the United States. The `state` select element should contain each state's two-letter abbreviation as `option` options. You don't need to add `value` attributes to the `option` elements; the `form` can submit the two-letter abbreviations to the server. You saved a copy of the list of states earlier, right?
+3. Use the most appropriate input type for the email and zip code inputs, along with a `placeholder` attribute that shows an example of a properly formatted email address and Zip Code. (There is no "zipcode" input type; use another input type.) Since Zip Codes always have five digits (we'll ignore Zip+4), you should also set a maximum length for this input. See if you can figure out how to require exactly 5 digits.
+4. Add some inputs that will help you get to know your users better. Begin with a question that asks "Which of these colors do you like best?" and add a list of inputs to represent colors. Make sure you use an input type that allows for precisely one color choice. Ensure that the browser pre-selects the first color in the list when the page loads.
+5. Add another question that asks "Which web technologies do you want to learn?" and add a list of inputs that allow the user to pick any number of answers. Add some technologies (HTML, CSS, Javascript, Ruby, Rails, etc.) to the list.
+6. Add the most important part of a contact form: a comment box that lets the user enter several lines or paragraphs of text. Be sure the comment box displays up to around 6 rows and 80 columns of text but also scrolls as needed if the user enters more than that.
+7. When the user clicks the submit button, the browser should send a timestamp to the server along with the other form data. Since we don't have a way to determine the date with HTML and CSS alone, you can use a constant value like today's date, e.g., `2018-02-17` (year-month-day). The form should have an `input` tag for the timestamp, but the browser should not display it to the user; you can use `type="hidden"` for this control.
+8. Add a `submit` input to create a button with the name `Send`. You should also include a `reset` button so the user can clear the form and start over.
+9. Since we don't have an actual server that we can use, you can use the action URL `#` in your form.
+
+#### My Solution:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contact Form</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        margin-left: 30%;
+      }
+
+      fieldset {
+        border: none;
+      }
+      dt, dd {
+        display: inline-block;
+        box-sizing: border-box;
+        margin: 5px 0;
+      }
+
+      dt {
+        width: 15%;
+      }
+
+      dd {
+        width: 92%;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      input[type="text"], [type="email"] {
+        width: 500px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <dl>
+          <dt><label for="first_name">First Name</label></dt><!-- 
+           --><dd><input type="text" name="first_name" id="first_name" /></dd>
+
+          <dt><label for="last_name">Last Name</label></dt><!-- 
+           --><dd><input type="text" name="last_name" id="last_name" /></dd>
+
+          <dt><label for="email">Email Address</label></dt><!-- 
+           --><dd><input type="email" name="email" id="email" placeholder="email@example.com" /></dd>
+
+          <dt><label for="city">City</label></dt><!-- 
+           --><dd><input type="text" name="city" id="city" /></dd>
+
+          <dt><label for="state">State</label></dt><!-- 
+           --><dd>
+                <select name="state" id="state">
+                  <option>AK</option>
+                  <option>AL</option>
+                  <option>AR</option>
+                  <option>AZ</option>
+                  <option>CA</option>
+                  <option>CO</option>
+                  <option>CT</option>
+                  <option>DC</option>
+                  <option>DE</option>
+                  <option>FL</option>
+                  <option>GA</option>
+                  <option>HI</option>
+                  <option>IA</option>
+                  <option>ID</option>
+                  <option>IL</option>
+                  <option>IN</option>
+                  <option>KS</option>
+                  <option>KY</option>
+                  <option>LA</option>
+                  <option>MA</option>
+                  <option>MD</option>
+                  <option>ME</option>
+                  <option>MI</option>
+                  <option>MN</option>
+                  <option>MO</option>
+                  <option>MS</option>
+                  <option>MT</option>
+                  <option>NC</option>
+                  <option>ND</option>
+                  <option>NE</option>
+                  <option>NH</option>
+                  <option>NJ</option>
+                  <option>NM</option>
+                  <option>NV</option>
+                  <option>NY</option>
+                  <option>OH</option>
+                  <option>OK</option>
+                  <option>OR</option>
+                  <option>PA</option>
+                  <option>RI</option>
+                  <option>SC</option>
+                  <option>SD</option>
+                  <option>TN</option>
+                  <option>TX</option>
+                  <option>UT</option>
+                  <option>VA</option>
+                  <option>VT</option>
+                  <option>WA</option>
+                  <option>WI</option>
+                  <option>WV</option>
+                  <option>WY</option>
+                </select>
+              </dd>
+
+          <dt><label for="zip">Zip Code</label></dt><!-- 
+           --><dd><input type="text" name="zip" id="zip" pattern="[0-9]{5}" placeholder="e.g. 02309" /></dd>
+        </dl>
+
+        <p>Which of these colors do you like best?</p>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="color" value="red" checked />
+              Red
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="radio" name="color" value="blue" />
+              Blue
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="radio" name="color" value="yellow" />
+              Yellow
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="radio" name="color" value="green" />
+              Green
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="radio" name="color" value="orange" />
+              Orange
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="radio" name="color" value="purple" />
+              Purple
+            </label>
+          </li>
+        </ul>
+
+        <p>Which web technologies do you want to learn?</p>
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" name="html" value="HTML" />
+              HTML
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox" name="css" value="CSS" />
+              CSS
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox" name="javascript" value="JavaScript" />
+              JavaScript
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox" name="ruby" value="Ruby" />
+              Ruby
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox" name="rails" value="Rails" />
+              Rails
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox" name="python" value="Python" />
+              Python
+            </label>
+          </li>
+        </ul>
+
+        <dl>
+          <dt><label for="comments">Comments</label></dt>
+          <dd>
+            <textarea name="comments" id="comments" rows="6" cols="80" 
+                      placeholder="Tell us what you think"></textarea>
+          </dd>
+        </dl>
+
+
+        <input type="hidden" name="timestamp" value="2020-09-14" />
+        <input type="submit" value="Send" />
+        <input type="reset" />
+      </fieldset>
+    </form>
+  </body>
+</html>
+```
+
+#### LS Solution:
+
+```html
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Contact Form</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <dl>
+          <dt>
+            <label for="first_name">First Name</label>
+          </dt>
+          <dd>
+            <input type="text" name="first_name" id="first_name" />
+          </dd>
+          <dt>
+            <label for="last_name">Last Name</label>
+          </dt>
+          <dd>
+            <input type="text" name="last_name" id="last_name" />
+          </dd>
+          <dt>
+            <label for="email">Email Address</label>
+          </dt>
+          <dd>
+            <input type="email" name="email" id="email" />
+          </dd>
+          <dt>
+            <label for="city">City</label>
+          </dt>
+          <dd>
+            <input type="text" name="city" id="city" />
+          </dd>
+          <dt>
+            <label for="state">State</label>
+          </dt>
+          <dd>
+            <select name="state" id="state">
+              <option>AK</option>
+              <option>AL</option>
+              <option>AR</option>
+              <option>AZ</option>
+              <option>CA</option>
+              <option>CO</option>
+              <option>CT</option>
+              <option>DC</option>
+              <option>DE</option>
+              <option>FL</option>
+              <option>GA</option>
+              <option>HI</option>
+              <option>IA</option>
+              <option>ID</option>
+              <option>IL</option>
+              <option>IN</option>
+              <option>KS</option>
+              <option>KY</option>
+              <option>LA</option>
+              <option>MA</option>
+              <option>MD</option>
+              <option>ME</option>
+              <option>MI</option>
+              <option>MN</option>
+              <option>MO</option>
+              <option>MS</option>
+              <option>MT</option>
+              <option>NC</option>
+              <option>ND</option>
+              <option>NE</option>
+              <option>NH</option>
+              <option>NJ</option>
+              <option>NM</option>
+              <option>NV</option>
+              <option>NY</option>
+              <option>OH</option>
+              <option>OK</option>
+              <option>OR</option>
+              <option>PA</option>
+              <option>RI</option>
+              <option>SC</option>
+              <option>SD</option>
+              <option>TN</option>
+              <option>TX</option>
+              <option>UT</option>
+              <option>VA</option>
+              <option>VT</option>
+              <option>WA</option>
+              <option>WI</option>
+              <option>WV</option>
+              <option>WY</option>
+            </select>
+          </dd>
+          <dt>
+            <label for="zip">Zip</label>
+          </dt>
+          <dd>
+            <input type="number" name="zip" id="zip" min="0" max="99999" />
+          </dd>
+        </dl>
+        <p>Which of these colors do you like best?</p>
+        <ul>
+          <li>
+            <label><input type="radio" value="red" name="color" checked/>Red</label>
+          </li>
+          <li>
+            <label><input type="radio" value="orange" name="color" />Orange</label>
+          </li>
+          <li>
+            <label><input type="radio" value="yellow" name="color" />Yellow</label>
+          </li>
+          <li>
+            <label><input type="radio" value="green" name="color" />Green</label>
+          </li>
+          <li>
+            <label><input type="radio" value="blue" name="color" />Blue</label>
+          </li>
+          <li>
+            <label><input type="radio" value="indigo" name="color" />Indigo</label>
+          </li>
+          <li>
+            <label><input type="radio" value="violet" name="color" />Violet</label>
+          </li>
+        </ul>
+        <p>Which web technologies do you want to learn?</p>
+        <ul>
+          <li>
+            <label><input type="checkbox" value="HTML" name="html" />HTML</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="CSS" name="css" />CSS</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="JavaScript" name="javascript" />JavaScript</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="Ruby" name="ruby" />Ruby</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="Rails" name="rails" />Rails</label>
+          </li>
+        </ul>
+        <label for="comments">Comments</label>
+        <textarea rows="6" cols="80" name="comments" id="comments"></textarea>
+        <input type="hidden" value="2015-01-01" name="timestamp" />
+        <input type="submit" value="Send" />
+        <input type="reset" />
+      </fieldset>
+    </form>
+  </body>
+</html>
+```
+
+## 9. Guided Project: Tweaking the Contact Form
+
