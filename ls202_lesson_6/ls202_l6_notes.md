@@ -317,3 +317,79 @@ After most problem descriptions, you'll see a screenshot of how your page should
 
 ## 5. Practice Problems: Floats (2)
 
+For this problem set, use the Inspector to add CSS properties to the working page and see immediate results. If you need a review of the Inspector, see [the documentation](https://developers.google.com/web/tools/chrome-devtools/inspect-styles/). You must know how to inspect and edit pages and styles for this assignment; you don't need any other developer tools.
+
+1. [Open this page](https://d3jtzah944tvom.cloudfront.net/lesson_4/exercises_floating_positioning/float1.html) then open the Inspector and find the div with the "floated" ID. Select it, then make the `div` float left by updating the styles tab.
+
+   Solution
+
+   The page should now look something like this.
+
+   
+
+   ![Floating a short column](https://d3jtzah944tvom.cloudfront.net/lesson_4/exercises_floating_positioning/float1.jpg)
+
+   
+
+2. Can you determine why the blue paragraph hangs out beneath the right edge of the orange `div`? Add a CSS property to force the blue box beneath the orange; don't worry about the widths - the blue box will be wider than the orange.
+
+   Solution
+
+   ```css
+   /* A selector of `#floated + p` will also work */
+   main > p {
+     clear: both;
+   }
+   ```
+
+3. Why is the orange container now narrower than the blue? How can you keep the orange box floated but take on the same width as the blue?
+
+   Solution
+
+   When you float an element, it uses as much space as it needs to display its content, which is less than that required by the `main` element. To use all available width, add `width: 100%`.
+
+   ```css
+   #floated {
+     width: 100%;
+   }
+   ```
+
+4. Change the floated element's width to 20%, then remove the `clear` from the `p` below it. Try setting a left margin on the blue paragraph equal to the width of the floated element.
+
+   Solution
+
+   This code works to produce a two-column layout here.
+
+   ```css
+   #floated {
+     width: 20%;
+   }
+   
+   main > p {
+     /* clear: both; */
+     margin-left: 20%;
+   }
+   ```
+
+   This code works, but it isn't robust. For instance, if you add a fixed height to the blue paragraph that isn't enough to fully contain the text, the text will overflow. If you add `overflow: hidden` to the blue box, the overflowing text will get clipped. If you add `overflow: auto` instead, you will be able to scroll the blue box.
+
+   Can you find other ways to demonstrate the lack of robustness?
+
+5. Remove the left margin on the blue paragraph, and have it float right instead. What do you think will happen? Will the orange and blue elements sit side-by-side?
+
+   Solution
+
+   The blue element ends up too large to fit within the remaining space. Remember that floated elements take up as much space as they need for the content, within the bounds of any space constraints.
+
+6. Ideally, you want both boxes side-by-side. In an attempt to do that, you add a width of 80% to the blue paragraph. What happens? How can you fix this problem without changing the width setting?
+
+   Solution
+
+   Since the paragraph has 1em of padding on all sides, we need to account for that when we set the width. In fact, as is, the blue box is 80% of the container width plus an additional 2rem. To fix this issue, set the box-sizing mode to `border-box`.
+
+---
+
+## 6. Positioning
+
+## 7. Practice Problems: Positioning
+
