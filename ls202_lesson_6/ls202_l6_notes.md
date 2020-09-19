@@ -393,3 +393,245 @@ For this problem set, use the Inspector to add CSS properties to the working pag
 
 ## 7. Practice Problems: Positioning
 
+For these problems, create a simple HTML page with a few paragraphs of text. You should have enough content that you must scroll the browser window to read the bottommost content; you can also shorten the window height if you prefer. If you add any elements to the page, add them after the paragraph elements.
+
+1. Starting with a new document, create an element and position it at the top right of the page. It should scroll with the rest of the window when you scroll.
+
+   ###### My Solution
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <title>your page title goes here</title>
+       <meta charset="utf-8" />
+       <style>
+         .positioned {
+           background-color: lightyellow;
+           width: 200px;
+           height: 100px;
+           margin: 0;
+           position: fixed;
+           right: 0;
+           top: 0;
+           text-align: center;
+           line-height: 100px;
+         }
+       </style>
+     </head>
+     <body>
+       <p class="positioned">I'm positioned!</p>
+       <p>
+         The economic impact of COVID-19 has raised the stakes for policy makers everywhere, and central bankers are all in. But perhaps none more so than Jerome Powell, Chairman of the U.S. Federal Reserve. From rate cuts to liquidity support and from swap lines to asset purchase schemes, the Fed has opened up the floodgates. It’s still not clear when they’ll be closed again. But with all this new money gushing into the economy, shouldn’t Chairman Powell, the rest of the FOMC, and everyone else be worried about inflation?
+       </p>
+       
+       ...
+       
+     </body>
+   </html>
+   ```
+
+   ###### LS Solution
+
+   ```html
+   <section>
+     <!-- text paragraphs go here -->
+   </section>
+   
+   <div id="positioned">I'm positioned!</div>
+   ```
+
+   ```css
+   #positioned {
+     background-color: #ffc;
+     padding: 30px 15px;
+     position: absolute;
+     right: 0;
+     top: 0;
+   }
+   ```
+
+   
+
+2. Change the element to remain in the top right of the viewport when the window scrolls.
+
+   ###### My Solution
+
+   ```css
+   #positioned {
+     position: fixed;
+   }
+   ```
+
+   
+
+3. Set the element's width to 400px and center it horizontally. Centering positioned elements is tricky, so feel free to check the hints and use Google.
+
+   ###### My Solution
+
+   ```css
+   #positioned {
+     width: 400px;
+     right: 50%;
+     margin-right: -200px;
+   }
+   ```
+
+   ###### LS Solution
+
+   To horizontally center a positioned element with fixed width, you can move it to the center of the container with a `left` offset of 50%, and a negative left margin that is half the width of the element. In our example, we're moving the element from the left edge to the center of the container, then reversing direction by using a negative margin.
+
+   ```css
+   #positioned {
+     box-sizing: border-box;
+     left: 50%;
+     margin-left: -200px;
+     /* right: 0; */
+     width: 400px;
+   }
+   ```
+
+4. Place a new element between the page contents and the yellow item; by between, we mean in a 3D sense. Consider the page content to be at the bottom of a stack and the yellow at the top; place the new element between the two.
+
+   The new element should take up the full width and height of the page. Use the CSS below to get started; note that it sets the background to a translucent color. The new element should fill the browser's entire window, and it should appear in front of the paragraphs but behind the yellow box.
+
+   ```css
+   background-color: rgba(0, 0, 0, .6);
+   ```
+
+   ###### My Solution
+
+   ```html
+   ...
+   
+   			<p>
+           Companies saying they are finding it hard to find qualified labor is just another way of saying they don’t want to pay to train people, they want the government to do it. If the labor market was tight and the economy was booming, firms would be throwing out all kinds of incentives to attract anybody with two feet and heart beat. Firms would not only train workers, they’d actually offer paid training. Imagine that was the way the world worked. Alas, we’re still waiting.
+         </p>
+       </section>
+       <div id="positioned">I'm positioned!</div>
+       <div id="middle"></div>
+     </body>
+   </html>
+   ```
+
+   ```css
+   #positioned {
+     background-color: #ffc;
+     padding: 30px 15px;
+     position: fixed;
+     box-sizing: border-box;
+     right: 50%;
+     margin-right: -200px;
+     top: 0;
+     width: 400px;
+     z-index: 1;
+   }
+   
+   #middle {
+     background-color: rgba(0, 0, 0, .6);
+     height: 100%;
+     width: 100%;
+     position: fixed;
+     z-index: auto;
+     top: 0;
+   }
+   ```
+
+   ###### LS Solution
+
+   To take up the entirety of the window, we can use a width and height of `100%`. We can use z-index values for both elements to position one on top of the other.
+
+   ```html
+   <div id="fixed"></div>
+   ```
+
+   ```css
+   #positioned {
+     /* z-index must be greater than that of the elements you want overlay */
+     z-index: 2; /* 2 must be > 1 */
+   }
+   
+   #fixed {
+     background-color: rgba(0, 0, 0, .6);
+     height: 100%;
+     left: 0;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1; /* 1 must be < 2 */
+   }
+   ```
+
+5. Create a new element inside the `#positioned` container. Starting with the CSS below, move the new item partially outside the parent's boundaries by 10px to the left and top. To ensure you can see everything, move the parent element down from the top of the page.
+
+   ```css
+   ... {
+     /* code omitted */
+     background-color: pink;
+     height: 20px;
+     width: 20px;
+   }
+   ```
+
+   ###### My Solution
+
+   ```html
+   <div id="positioned">
+     <div id="inside"></div>
+     I'm positioned!
+   </div>
+   ```
+
+   ```css
+   #positioned {
+     background-color: #ffc;
+     padding: 30px 15px;
+     position: fixed;
+     box-sizing: border-box;
+     right: 50%;
+     margin-right: -200px;
+     top: 20px;
+     width: 400px;
+     z-index: 2;
+     display: inline-block;
+   }
+   
+   #inside {
+     background-color: pink;
+     height: 20px;
+     width: 20px;
+     position: relative;
+     top: -40px;
+     left: -25px;
+     display: inline-block;
+     box-sizing: border-box;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```html
+   <div id="positioned">
+     <span></span>
+     I'm positioned!
+   </div>
+   ```
+
+   ```css
+   #positioned {
+     top: 20px;
+   }
+   
+   #positioned span {
+     background-color: pink;
+     height: 20px;
+     left: -10px;
+     position: absolute;
+     top: -10px;
+     width: 20px;
+   }
+   ```
+
+---
+
+## 8. On Your Own: Floats and Positioning
