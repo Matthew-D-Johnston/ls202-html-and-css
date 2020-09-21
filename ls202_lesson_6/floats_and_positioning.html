@@ -13,7 +13,7 @@
         border: 2px solid grey;
       }
 
-      h2, h3 {
+      h2, h3, h4 {
         color: #C83422;
       }
 
@@ -28,6 +28,10 @@
       a {
         color: inherit;
         text-decoration: none;
+      }
+
+      li {
+        font-style: italic;
       }
 
       .margin {
@@ -55,6 +59,149 @@
         overflow: hidden;
       }
 
+      .no-width-no-height {
+        color: white;
+        background-color: #2DA2FA;
+      }
+
+      .height-padding-margin {
+        color: white;
+        background-color: green;
+        box-sizing: border-box;
+        height: 60px;
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .width-no-height {
+        color: white;
+        background-color: #FA5923;
+        width: 90px;
+      }
+
+      .width-height-padding-margin {
+        color: white;
+        background-color: #E32A14;
+        box-sizing: border-box;
+        opacity: 25%;
+        width: 180px;
+        height: 120px;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .box-1 {
+        color: white;
+        background-color: #2DA2FA;
+        float: left;
+        border: 1px solid #FA5923;
+      }
+
+      .box-2 {
+        color: white;
+        background-color: #FA5923;
+        float: right;
+        border: 1px solid #FA5923;
+      }
+
+      .float-box-wrapper::before, .float-box-wrapper::after {
+        content: "";
+        display: block;
+      }
+
+      .float-box-wrapper::after {
+        clear: both;
+      }
+
+      .box-1a {
+        color: white;
+        background-color: #FA5923;
+        float: left;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        width: 40%;
+      }
+
+      .box-2a {
+        color: white;
+        background-color: #2DA2FA;
+        float: right;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        width: 50%;
+      }
+
+      .block-anchor {
+        display: block;
+        color: white;
+        background-color: #2DA2FA;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      .inline-block-anchor {
+        display: inline-block;
+        color: white;
+        background-color: #2DA2FA;
+        text-align: center;
+        box-sizing: border-box;
+        height: 60px;
+        line-height: 60px;
+        width: 180px;
+        margin: 30px 10px;
+      }
+
+      .floats-and-position {
+        text-align: center;
+        border-top: 2px dashed black;
+        box-sizing: border-box;
+        margin-top: 70px;
+        padding: 30px 10px 10px;
+      }
+
+      .box-1b {
+        color: white;
+        background-color: #FA5923;
+        float: left;
+        height: 90px;
+        line-height: 90px;
+        width: 40%;
+        text-align: center;
+        opacity: 75%;
+      }
+
+      .box-2b {
+        color: white;
+        background-color: #2DA2FA;
+        float: right;
+        height: 90px;
+        line-height: 90px;
+        width: 60%;
+        text-align: center;
+        opacity: 75%;
+      }
+
+      .box-3b {
+        color: white;
+        background-color: green;
+        clear: both;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        opacity: 75%;
+      }
+
+      .code-block {
+        margin: 50px;
+      }
 
     </style>
   </head>
@@ -118,104 +265,148 @@
 
     <h2>Block Elements</h2>
     <section>
-      Block-level elements require the entire width of the page and always start a new line. They can have margins and padding. When you omit the width, block elements expand to fill their parent container's natural width; when you omit the height, they expand to fit the content.
+      <p>
+        Block-level elements require the entire width of the page and always start a new line. They can have margins and padding. When you omit the width, block elements expand to fill their parent container's natural width; when you omit the height, they expand to fit the content.
+      </p>
 
       <h3>Example</h3>
 
-      `div` elements are block-level.
+      <p><code>div</code> elements are block-level.</p>
 
-      This div has no explicit width or height.
+      <div class="no-width-no-height">This div has no explicit width or height.</div>
 
-      Without an explicit width or height, the box fills the entire width and uses as much height as it needs to fit the content.
+      <p>
+        Without an explicit width or height, the box fills the entire width and uses as much height as it needs to fit the content.
+      </p>
 
-      This div has no explicit width but a height of 60px; it also has both padding and margins of 20px on all sides.
+      <div class="height-padding-margin">
+        This div has no explicit width but a height of 60px; it also has both padding and margins of 20px on all sides.
+      </div>
 
-      With an explicit height of 60px plus margins and padding, the box still fills the entire width (including the padding and margins), but now requires the requested height.
+      <p>
+        With an explicit height of 60px plus margins and padding, the box still fills the entire width (including the padding and margins), but now requires the requested height.
+      </p>
 
-      This div has a width of 90px and no explicit height.
+      <div class="width-no-height">This div has a width of 90px and no explicit height.</div>
 
-      With an explicit width of 90px, the box collapses down to 90px width but expands the height to ensure the text still fits.
+      <p>
+        With an explicit width of 90px, the box collapses down to 90px width but expands the height to ensure the text still fits.
+      </p>
 
-      This div has a width of 180px and a height of 120px; it also has both padding and margins of 20px on all sides.
+      <div class="width-height-padding-margin">
+        This div has a width of 180px and a height of 120px; it also has both padding and margins of 20px on all sides.
+      </div>
 
-      With an explicit width of 180px and height of 120px, the box takes on the requested dimensions. However, the content can overflow the box as it does here.
+      <p>
+        With an explicit width of 180px and height of 120px, the box takes on the requested dimensions. However, the content can overflow the box as it does here.
+      </p>
 
       <h3>Floating Block Elements</h3>
 
       <h4>Floating block elements with no width or height</h4>
 
-      Box - 1 - Floated Left
-      Box - 2 - Floated Right
+      <div class="float-box-wrapper">
+        <div class="box-1">Box - 1 - Floated Left</div>
+        <div class="box-2">Box - 2 - Floated Right</div>
+      </div>
 
-      Floated block-level elements that don't have a width collapse down to the width required by the content. Thus, multiple floated blocks can fit on the same line as shown above where we float one item left and the other right.
+      <p>
+        Floated block-level elements that don't have a width collapse down to the width required by the content. Thus, multiple floated blocks can fit on the same line as shown above where we float one item left and the other right.
+      </p>
 
       <h4>Floating block elements with width and height set.</h4>
 
-      Box - 1 - Floated Left
-      Box - 2 - Floated Right
+      <div class="float-box-wrapper">
+        <div class="box-1a">Box - 1 - Floated Left</div>
+        <div class="box-2a">Box - 2 - Floated Right</div>
+      </div>
 
-      When you specify the widths on floated block-level elements, the browser will observe the widths. In the above example, our blocks have widths of 40% and 50%.
+      <p>
+        When you specify the widths on floated block-level elements, the browser will observe the widths. In the above example, our blocks have widths of 40% and 50%.
+      </p>
 
       <h4>Can we change an inline element into a block element?</h4>
 
-      Let's use the anchor tag as an example.
+      <p>Let's use the anchor tag as an example.</p>
 
-        Home
-        About
-        Contact
+      <div class="float-box-wrapper">
+        <a class="block-anchor" href="#">Home</a>
+        <a class="block-anchor" href="#">About</a>
+        <a class="block-anchor" href="#">Contact</a>
+      </div>
 
-      Yes, we can change a block element to an inline and vice versa. You can change the display property regardless of the previous value.
+      <p>
+        Yes, we can change a block element to an inline and vice versa. You can change the <code>display</code> property regardless of the previous value.
+      </p>
     </section>
 
     <h2>Inline-Block Elements</h2>
     <section>
-      Inline-block elements are inline elements that take on most block element properties, such as width and height.
+      <p>
+        Inline-block elements are inline elements that take on most block element properties, such as width and height.
+      </p>
 
       <h3>Example</h3>
 
-      Let's use `inline-block` to create a navigation bar:
+      <p>Let's use <code>inline-block</code> to create a navigation bar:</p>
 
-        Home
-        Portfolio
-        About
-        Contact
+      <nav>
+        <a class="inline-block-anchor" href="#">Home</a>
+        <a class="inline-block-anchor" href="#">Portfolio</a>
+        <a class="inline-block-anchor" href="#">About</a>
+        <a class="inline-block-anchor" href="#">Contact</a>
+      </nav>
 
-      We achieved similar results when we floated the anchor elements. It's as though you get two elements in one: you have the flow properties of inline elements combined with most properties of block elements.
+      <p>
+        We achieved similar results when we floated the anchor elements. It's as though you get two elements in one: you have the flow properties of inline elements combined with most properties of block elements.
+      </p>
     </section>
 
     <h2 class="floats-and-position">Floats and Positioning Elements</h2>
     <section>
       <h3>Floats</h3>
 
-      The browser removes floated elements from the normal flow. Floated elements automatically become block-level elements with change: two or more floated elements can fit on the same line.
+      <p>
+        The browser removes floated elements from the normal flow. Floated elements automatically become block-level elements with change: two or more floated elements can fit on the same line.
+      </p>
 
       <h3>Example</h3>
 
-        Box 1
-        Box-2
-        Box-3
+      <div class="float-wrap">
+        <div class="box-1b">Box 1</div>
+        <div class="box-2b">Box-2</div>
+        <div class="box-3b">Box-3</div>
+      </div>
 
-      Elements that follow a floated element wrap around it. However, we don't want this behavior above, so we applied clear:both` property to the third `div`. There are two other values for `clear`, `left` and `right`, but we typically want `both.
+      <p>
+        Elements that follow a floated element wrap around it. However, we don't want this behavior above, so we applied <code>clear:both</code> property to the third <code>div</code>. There are two other values for <code>clear</code>, <code>left</code> and <code>right</code>, but we typically want <code>both</code>.
+      </p>
 
-      There are other ways to clear floats. One technique is the clearfix method:
-
-        elementName::after {
+      <p>There are other ways to clear floats. One technique is the <b>clearfix</b> method:</p>
+     
+      <pre class="code-block">
+        <code>elementName::after {
           content: " ";
           display:block;
           clear: both;
-        }
+        }</code>
+      </pre>
 
-      Here we append the ::after pseudo-element to the parent element's selector.
+      <p>Here we append the <code>::after</code> pseudo-element to the parent element's selector.</p>
     </section>
 
     <h2>Positioning</h2>
     <section>
-      We sometimes want to position elements at specific locations on the page. The normal page flow and floats can't do this with the precision we often want. We can use CSS positioning in this case. There are four positioning types:
+      <p>
+        We sometimes want to position elements at specific locations on the page. The normal page flow and floats can't do this with the precision we often want. We can use CSS positioning in this case. There are four positioning types:
+      </p>
 
-        Static
-        Fixed
-        Relative
-        Absolute
+      <ul>
+        <li>Static</li>
+        <li>Fixed</li>
+        <li>Relative</li>
+        <li>Absolute</li>
+      </ul>
 
       <h3>Static Positioning</h3>
 
