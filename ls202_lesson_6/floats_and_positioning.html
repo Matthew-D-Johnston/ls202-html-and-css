@@ -203,6 +203,46 @@
         margin: 50px;
       }
 
+      .fixed-box {
+        color: white;
+        background-color: #2DA2FA;
+        box-sizing: border-box;
+        width: 225px;
+        padding: 25px 35px;
+        position: fixed;
+        left: 35px;
+        bottom: 50px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 10px;
+        z-index: 0;
+      }
+
+      .relative-box {
+        color: white;
+        background-color: #FA5923;
+        border-radius: 10px;
+        box-sizing: border-box;
+        width: 325px;
+        padding: 25px 35px;
+        text-align: center;
+        position: relative;
+        right: 90px;
+        top: 25px;
+      }
+
+      .absolute-box {
+        color: white;
+        background-color: green;
+        border-radius: 10px;
+        box-sizing: border-box;
+        width: 200px;
+        padding: 25px 35px;
+        text-align: center;
+        position: absolute;
+        left: 450px;
+        top: 4370px;
+      }
     </style>
   </head>
   <body>
@@ -410,33 +450,45 @@
 
       <h3>Static Positioning</h3>
 
-      The element renders at its normal position on the page. That is, the browser uses the standard page flow. All elements default tom static positioning.
+      <p>
+        The element renders at its normal position on the page. That is, the browser uses the standard page flow. All elements default tom static positioning.
+      </p>
 
       <h3>Fixed Positioning</h3>
 
-      Lets you place an element at a fixed position in the browser window; it will remain in place even when you scroll the page. You need the top`, `bottom`, `right`, and `left properties to position the element.
+      <p>
+        Lets you place an element at a fixed position in the browser window; it will remain in place even when you scroll the page. You need the <code>top</code>, <code>bottom</code>, <code>right</code>, and <code>left</code> properties to position the element.
+      </p>
 
-      The browser removes elements with fixed positioning from the page flow. It does not leave a gap in the location where the browser would have positioned it otherwise.
+      <p>
+        The browser removes elements with fixed positioning from the page flow. It does not leave a gap in the location where the browser would have positioned it otherwise.
+      </p>
 
-      The blue box on the bottom-left corner of the page is a fixed position element.
+      <p>The blue box on the bottom-left corner of the page is a fixed position element.</p>
 
-      I use fixed positioning.
+      <div class="fixed-box">I use fixed positioning.</div>
 
       <h3>Relative Positioning</h3>
 
-      Relative positioning positions an element at a location relative to its normal position. Unlike fixed positioning, relative positioning does not remove an element from the page flow; in fact, you can observe a gap in the flow indicating the original position.
+      <p>
+        Relative positioning positions an element at a location relative to its normal position. Unlike fixed positioning, relative positioning does not remove an element from the page flow; in fact, you can observe a gap in the flow indicating the original position.
+      </p>
 
-      I use relative positioning.
+      <div class="relative-box">I use relative positioning.</div>
 
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non cumque repellat sapiente vitae nihil debitis accusamus, odit, tempore id reiciendis consequatur necessitatibus veritatis, distinctio vel, cum repellendus numquam blanditiis perferendis?
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non cumque repellat sapiente vitae nihil debitis accusamus, odit, tempore id reiciendis consequatur necessitatibus veritatis, distinctio vel, cum repellendus numquam blanditiis perferendis?
+      </p>
 
       <h3>Absolute Positioning</h3>
 
-      Absolute positioning removes an element from the normal page flow and positions it at an absolute position relative to its parent element. If the parent element is the &lt;body&gt;, the position is absolute relative to the complete page.
+      <p>
+        Absolute positioning removes an element from the normal page flow and positions it at an absolute position relative to its parent element. If the parent element is the <code>&lt;body&gt;</code>, the position is absolute relative to the complete page.
+      </p>
 
-      The green box shows uses absolute positioning.
+      <p>The green box shows uses absolute positioning.</p>
 
-      I use absolute positioning.
+      <div class="absolute-box">I use absolute positioning.</div>
     </section>
   </body>
 </html>
