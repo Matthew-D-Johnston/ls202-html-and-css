@@ -635,3 +635,229 @@ For these problems, create a simple HTML page with a few paragraphs of text. You
 ---
 
 ## 8. On Your Own: Floats and Positioning
+
+## 9. Flex and Grid
+
+## 10. Guided Project: Flex
+
+1. Load the completed project and your in-progress project from the downloaded file in your browser. Study the differences, and try to decide what general actions you must take to convert your project to one that matches the completed project. Think about the tasks you need to accomplish, not the CSS you need to code.
+
+   ###### My Initial Notes
+
+   Steps that will need to be taken:
+
+   1. The blue background for the `<header>` will need to span the entire width of the screen and expand to reach the top of the screen.
+   2. The `<nav>` bar will need to be rearranged horizontally and also span the width of the screen. 
+   3. Both of the `<aside>` elements and the `<main>` element will need to be arranged so they flow horizontally.
+   4. The `<footer>` also needs to be rearranged horizontally, and the orange bit needs to be removed.
+
+   ###### LS Initial Notes
+
+   1. Zero out margins and padding
+   2. Set primary font and color info.
+   3. Expand header
+   4. Convert navigation menu to horizontal
+   5. Create 3 column format for main content areas
+   6. Create a 2 column footer.
+   7. Shrink image and move it to the left side.
+   8. Center copyright notice vertically and right justify it.
+
+2. Start by providing any global settings you think you will need. You can update this later.
+
+   ###### My Solution
+
+   1. I commented out the current margins and padding that existed in the CSS file.
+   2. Created a `main` selector and added a `display` property of `flex`; also, added the `display` property of `flex` to the `footer` selector.
+
+   ###### LS Solution
+
+   ```css
+   * {
+     margin: 0;
+     padding: 0;
+   }
+   
+   html {
+     background-color: white;
+     color: black;
+     font: normal 24px Helvetica, Arial, sans-serif;
+   }
+   ```
+
+   It's a good idea to start out by getting rid of all margins and padding at the global level to decrease the cross-browser differences. We can use the `*` selector in this project; you would typically use a CSS reset (discussed later) for this.
+
+   From step 1, we can observe that most of our text should be black and that white is a good starting choice for the background color; we apply both of those via the `html` selector.
+
+3. Give the header a blue background; the `h1` heading has a blue background, but not the `header`.
+
+   ###### My Solution
+
+   ```css
+   header {
+     background-color: blue;
+     padding: 1rem;
+     text-align: center;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   header, h1 {
+     background-color: blue;
+     color: white;
+   }
+   ```
+
+   You could also put the `background-color` for `header` in the other `header` selector. The advantage of adding a `header` selector to the `h1` selector is that it emphasizes the relationship between the `header` and `h1` elements.
+
+4. Convert the navigation links into a horizontal navigation bar:
+
+   ###### My Solution
+
+   ```css
+   ul {
+     display: flex;
+     list-style_type: none;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   ul {
+     display: flex;
+     justify-content: space-around;
+     list-style-type: none;
+   }
+   ```
+
+   Without Flex, you would have to convert the `li` elements to `inline-block` then deal with the spaces between the `inline-block` elements. Flex takes care of both those needs.  
+
+5. Create three columns of text - an `article` and two `aside`s - as the main body of the page. The `article` should consume half the page width, while the `aside`s should each consume one-quarter (that is, the `article` is twice the width of each `aside`). Each column should be the same height, no matter how much text it contains.
+
+   ###### My Solution
+
+   ```css
+   main {
+     display: flex;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   main {
+     display: flex;
+   }
+   
+   article {
+     flex: 2;
+   }
+   
+   aside {
+     flex: 1;
+   }
+   ```
+
+   You can do the same thing with floats and positioning, but it isn't easy.
+
+6. Create a two-column `footer` with the copyright notice on the left, and the 200px high image on the right.
+
+   ###### My Solution
+
+   ```css
+   footer {
+     background-color: yellow;
+     display: flex;
+     justify-content: flex-end;
+     height: 200px;
+   }
+   
+   img {
+     height: 200px;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   footer {
+     background-color: yellow;
+     display: flex;
+     justify-content: space-between;
+   }
+   
+   img {
+     display: block;
+     height: 200px;
+   }
+   ```
+
+   
+
+7. Swap the positions of the copyright notice and image to place the image on the left and the copyright notice on the right.
+
+   ###### My Solution
+
+   ```css
+   footer {
+     background-color: yellow;
+     display: flex;
+     justify-content: flex-start;
+   }
+   
+   #copyright {
+     margin: 0 1rem;
+     order: 2;
+   }
+   
+   #logo {
+     background-color: orange;
+     order: 1;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   footer {
+     background-color: yellow;
+     display: flex;
+     flex-flow: row-reverse;
+     justify-content: space-between;
+   }
+   ```
+
+8. Center the copyright notice vertically.
+
+   ###### My Solution
+
+   ```css
+   footer {
+     background-color: yellow;
+     display: flex;
+     flex-flow: row-reverse;
+     justify-content: space-between;
+     align-items: center;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   footer {
+     align-items: center;
+     background-color: yellow;
+     display: flex;
+     flex-flow: row-reverse;
+     justify-content: space-between;
+   }
+   ```
+
+   We use `align-items` or `align-content` when working with Flex, not `vertical-align`. `vertical-align` works with `inline` elements, not `flex`.
+
+---
+
+## 11. Guided Project: Grid
+
