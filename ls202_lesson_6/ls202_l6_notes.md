@@ -861,3 +861,271 @@ For these problems, create a simple HTML page with a few paragraphs of text. You
 
 ## 11. Guided Project: Grid
 
+1. Load the completed project and your in-progress project from the downloaded file in your browser. Study the differences, and try to decide what general actions you must take to convert your project to one that matches the completed project. Think about the tasks you need to accomplish, not the CSS you need to code.
+
+   ###### My Initial Notes
+
+   1. Reset the margins and padding to zero.
+   2. Make sure there is no white space between header, body, and footer.
+   3. Make the navigation menu horizontal rather than vertical.
+   4. Make it so that the first article is sandwiched horizontally between the two asides with green backgrounds.
+   5. The article with the blue background and the aside with the pink background should appear below the other article and aside elements, with the aside on the left and the article on the right.
+   6. Adjust the footer: compress the size of the image; make sure the image is on the left side of the page and the copyright message with the yellow background on the right.
+
+   ###### LS Initial Notes
+
+   1. Zero out margins and padding
+   2. Set primary font and color info.
+   3. Convert navigation menu to horizontal
+   4. Create a 5-line, 3-column grid format for the page
+   5. Position elements in the grid
+   6. Create a 1-line, 2-column grid in the footer.
+   7. Move the image and copyright to the footer grid.
+   8. Shrink image.
+   9. Center copyright notice vertically and right justify it.
+
+2. Start by providing any global settings you think you will need. You can update this later.
+
+   ###### My Solution
+
+   ```css
+   * {
+     margin: 0;
+     padding: 0;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   html {
+     background-color: white;
+   	color: black;
+     font: normal 24px Helvetica, Arial, sans-serif;
+   }
+   ```
+
+   It's a good idea to start out by getting rid of all margins and padding at the global level to decrease the cross-browser differences. We can use the `*` selector in this project; you would typically use a CSS reset (discussed later) for this.  
+
+   From step 1, we can observe that most of our text should be black and that white is a good starting choice for the background color; we apply both of those via the `html` selector.
+
+3. Convert the navigation links into a horizontal navigation bar:
+
+   ###### My Solution
+
+   ```css
+   ul {
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     list_style-type: none;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   ul {
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     list-style-type: none;
+   }
+   ```
+
+   This code converts the list of navigation links to a single line grid in which each item is part of a `1fr`-width cell. Assigning each cell the same `1fr` width divides the cells up evenly, with each cell taking up 1/5th of the page width.  
+
+   Without Grid, you would have to convert the `li` elements to `inline-block` then deal with the spaces between the `inline-block` elements. Grid takes care of both those needs.
+
+4. Organize the entire page as a grid of three columns and five lines, with named grid areas. The first and last column should each take up 1/4 of the page width, while the central column should take up 1/2 the page width. Use fractions, not percentages, to designate these measurements. The `header` should be on the top line, followed by the navigation bar. The content area consists of two lines. The first has two `aside` elements and an `article`, with the `article` in the larger center column. The next line consists of an `article` and an `aside`. Lastly, the `footer` should appear at the bottom of the grid.
+
+   ###### My Solution
+
+   ```css
+   body {
+     display: grid;
+     grid-template-columns: 25% 50% 25%; /* couldn't get fractions to work */
+   }
+   
+   header {
+     padding: 1rem;
+     text-align: center;
+     grid-row: 1;
+     grid-column: 1 / span 3;
+   }
+   
+   nav {
+     background-color: cyan;
+     grid-row: 2;
+     grid-column: 1 / span 3;
+   }
+   
+   #article-1,
+   #aside-1,
+   #aside-2 {
+     grid-row: 3;
+   }
+   
+   #aside-1 {
+     grid-column: 1;
+   }
+   
+   #article-2 {
+     grid-column: 2;
+   }
+   
+   #aside-2 {
+     grid-column: 3;
+   }
+   
+   #article-2,
+   #aside-3 {
+     grid-row: 4;
+   }
+   
+   #aside-3 {
+     grid-column: 1;
+   }
+   
+   #article-2 {
+     grid-column: 2 / span 2;
+   }
+   
+   footer {
+     background-color: yellow;
+     grid-row: 5;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   body {
+     display: grid;
+     grid-auto-rows: min-content;
+     grid-template-areas:
+       "header   header    header"
+       "nav      nav       nav"
+       "sidebar1 article1  sidebar2"
+       "sidebar3 article2  article2"
+       "footer   footer    footer";
+     grid-template-columns: 1fr 2fr 1fr;
+   }
+   
+   header {
+     grid-area: header;
+     padding: 1rem;
+     text-align: center;
+   }
+   
+   nav {
+     background-color: cyan;
+     grid-area: nav;
+   }
+   
+   #article-1 {
+     grid-area: article1;
+   }
+   
+   #article-2 {
+     background-color: skyblue;
+     grid-area: article2;
+   }
+   
+   #aside-1 {
+     grid-area: sidebar1;
+   }
+   
+   #aside-2 {
+     grid-area: sidebar2;
+   }
+   
+   #aside-3 {
+     background-color: pink;
+     grid-area: sidebar3;
+   }
+   
+   footer {
+     background-color: yellow;
+     grid-area: footer;
+   }
+   ```
+
+   The most striking part of this code is the `grid-template-areas` property on the `body` and the associated `grid-area` properties that give names to each grid item. The `grid-template-areas` property shows the positioning and size for each `grid-area`:
+
+   - The first row contains the `header` grid area, spread out over the entire row.
+   - The second row contains the `nav` grid area, spread out over the entire row.
+   - The third row contains the `sidebar1` and `sidebar2` grid areas as well as the `article1` grid area, with the `article1` area in the middle.
+   - The fourth row contains the `sidebar3` and `article2` grid areas, with the `article2` area spanning two columns.
+   - The fifth row contains the `footer` grid area, spread out over the entire row.
+
+   This solution is more complicated than a Flex solution. The most straightforward approach often requires Flex and Grid together.  
+
+   Our layout is independent of the order in which we define the elements in the HTML.  
+
+   Lastly, the photo in the footer is too big for the intended cell, so the browser stretches the cell to allow the image to fit. This layout looks odd, so we'll fix that in the next question.  
+
+5. Divide the footer area into a sub-grid that will show the logo on the left and the copyright notice on the right.
+
+   ###### LS Solution
+
+   ```css
+   footer {
+     background-color: yellow;
+     display: grid;
+     grid-area: footer;
+     grid-template-areas: "logo copyright";
+   }
+   
+   #copyright {
+     grid-area: copyright;
+     margin: 0 1rem;
+   }
+   
+   #logo {
+     background-color: orange;
+     grid-area: logo;
+   }
+   ```
+
+   This solution is similar to that used in the previous step: we define a grid template area, then assign the grid-area names to the appropriate selectors.  
+
+   If you make the window narrow enough, the space allocated for the image may begin to shrink due to the space required for the copyright message.
+
+6. Reduce the size of the image to the same size as the first column of the content area.
+
+   ###### LS Solution
+
+   ```css
+   footer {
+     background-color: yellow;
+     display: grid;
+     grid-area: footer;
+     grid-template-areas: "logo copyright";
+     grid-template-columns: 1fr 3fr;
+   }
+   
+   img {
+     display: block;
+     object-fit: cover;
+     width: 100%;
+   }
+   ```
+
+   This solution is similar to that used in the Flex project: we set the display type to `block` and set the width, though this time we want the width to be 100% of the cell width. We also need to supply `object-fit` to control the technique used to resize the image.  
+
+   If you make the window narrow enough, the space allocated for the image may begin to shrink due to the space required for the copyright message.
+
+7. Right-align and vertically center the copyright message in the yellow box.
+
+   ```css
+   #copyright {
+     align-self: center;
+     grid-area: copyright;
+     margin: 0 1rem;
+     justify-self: end;
+   }
+   ```
+
+   You can think of `justify-self` as a [more Grid-like way to align content](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout). If you're using an older browser, you can replace `justify-self: end` with `text-align: right`. The result is identical, but the `justify-self` approach is more Grid-like.
+
+---
+
