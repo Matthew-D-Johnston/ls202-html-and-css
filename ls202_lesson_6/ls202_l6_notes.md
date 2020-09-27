@@ -1129,3 +1129,41 @@ For these problems, create a simple HTML page with a few paragraphs of text. You
 
 ---
 
+## 12. CSS Frameworks
+
+## 13. Responsive Design
+
+Most websites must look good and provide identical functionality regardless of whether the user is using a smartphone or a desktop with a massive display, or anything in between. However, what looks great on a desktop, for example, is sometimes a poor user experience on a smartphone. The same holds in the other direction: a site that looks great on your cell phone will look sparse and empty on your 34-inch display.
+
+Dealing with these differences is not hard, but it requires the ability to write CSS that changes with different output devices. That's the role of **CSS media queries**.
+
+### Media Queries
+
+Media queries typically define styles that change based on the current size of the browser window, which lets us customize the look for phones, tablets, small laptops, and large desktop displays. Here's a simple media query that changes the link color on small devices (cell phones frequently have screens less than 480px wide):
+
+```css
+a {
+  color: #f00;
+}
+
+@media (max-width: 480px) {
+  a {
+    color: #06c;
+  }
+}
+```
+
+Any styles you put inside the media query block will apply when the screen width is 480px or less, as specified by the `(max-width: 480px)` query.  
+
+You can also use the words `not` and `and` in media queries, and choose different media types such as `screen`, `print`, or `speech`. Most common is a combination of `screen` media type and a `min-width` or `max-width`, like this:
+
+```css
+@media screen and (max-width: 1600px) {
+  /* CSS for 1600px (or smaller) screens (no printers!) */
+}
+```
+
+---
+
+## 14. On Your Own: Fluid Photo Gallery
+
