@@ -1273,3 +1273,264 @@ You can also use the words `not` and `and` in media queries, and choose differen
 </html>
 ```
 
+###### LS Solution
+
+##### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fluid Photo Gallery</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="gallery.css" />
+  </head>
+  <body>
+    <main>
+      <h1>My Photo Gallery</h1>
+      <figure>
+        <img src="http://placehold.it/1200x900" alt="Example photo" />
+        <figcaption>Example photo</figcaption>
+      </figure>
+      <ul>
+        <li><img src="http://placehold.it/1200x900" alt="" title="Photo 1" /></li>
+        <li><img src="http://placehold.it/1200x900" alt="" title="Photo 2" /></li>
+        <li><img src="http://placehold.it/1200x900" alt="" title="Photo 3" /></li>
+        <li><img src="http://placehold.it/1200x900" alt="" title="Photo 4" /></li>
+      </ul>
+    </main>
+  </body>
+</html>
+```
+
+##### CSS
+
+```css
+body {
+  margin: 0;
+  font: normal 16px Helvetica, Arial, sans-serif;
+  color: #f0f0f0;
+  background: #141414;
+}
+
+main {
+  min-width: 600px;
+  max-width: 1000px;
+  padding: 20px;
+  margin: 0 auto;
+  background: #333333;
+}
+
+h1 { text-align: center; }
+
+img {
+  display: block;
+  width: 100%;
+}
+
+figure {
+  padding: 0 0 30px 0;
+  margin: 0;
+}
+
+figure img {
+  border: 15px solid #ffffff;
+  box-sizing: border-box;
+}
+
+figcaption {
+  padding: 10px 0 0 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0 -15px;
+  font-size: 0;
+}
+
+li {
+  display: inline-block;
+  width: 25%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+li img {
+  border: 3px solid #ffffff;
+}
+```
+
+---
+
+## 15. Guided Project: Photo Gallery With Media Queries
+
+In this project, you will add some media queries to the photo gallery project from the previous assignment to adjust the design for both smaller and larger screens. In the original project, we used a fluid layout with a minimum width of 500 pixels and a maximum width of 1000. In this project, we'll do away with the minimum width; instead, we'll reduce the number of thumbnails shown at the bottom as the screen width shrinks.  
+
+The final project displays four thumbnails per line when the window is at least 900 pixels wide. It displays three per line when the window is between 600 and 899 pixels, and two per line when the window is narrower than 600 pixels. As a challenge, we'll add an extra layout that kicks in when the window width is 1280px or more.  
+
+You can start this project with the [completed example from the previous project](https://d3jtzah944tvom.cloudfront.net/202/projects/lesson_6/photo_gallery_with_fluid_layout/example.html), or your own completed version.  
+
+1. Add a meta tag that tells the browser that this page is a responsive design.
+
+   ###### LS Solution
+
+   ```html
+   <head>
+     <title>Example Liquid Photo Gallery</title>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="gallery.css" />
+   </head>
+   ```
+
+2. Remove the minimum width from the project.
+
+   ###### My Solution
+
+   ```css
+   main {
+     /* min-width: 600px; */ /* delete this line */
+     max-width: 1000px;
+     padding: 20px;
+     margin: 0 auto;
+     background: #333333;
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   main {
+     /*min-width: 500px;*/
+   }
+   ```
+
+3. Add several additional thumbnail images to the HTML to help make your changes stand out as the number of thumbnails per line shrinks. Add some margin between each row of thumbnails.
+
+   ###### My Solution
+
+   ##### HTML
+
+   ```html
+   <ul>
+     <li><img src="http://placehold.it/1200x900" alt="" title="Photo 1" /></li>
+     <li><img src="http://placehold.it/1200x900" alt="" title="Photo 2" /></li>
+     <li><img src="http://placehold.it/1200x900" alt="" title="Photo 3" /></li>
+     <li><img src="http://placehold.it/1200x900" alt="" title="Photo 4" /></li>
+     <li><img src="http://placehold.it/1200x900" alt="" title="Photo 5" /></li>
+     <li><img src="http://placehold.it/1200x900" alt="" title="Photo 6" /></li>
+   </ul>
+   ```
+
+   ##### CSS
+
+   ```css
+   li {
+     display: inline-block;
+     width: 25%;
+     padding: 0 15px;
+     margin-bottom: 15px; /* new line of code */
+     box-sizing: border-box;
+   }
+   ```
+
+   ###### LS Solution
+
+   ##### HTML
+
+   ```html
+   <li>
+     <img src="http://placehold.it/1200x900" alt="Photo 5" />
+   </li>
+   
+   <li>
+     <img src="http://placehold.it/1200x900" alt="Photo 6" />
+   </li>
+   
+   <li>
+     <img src="http://placehold.it/1200x900" alt="Photo 7" />
+   </li>
+   ```
+
+   ##### CSS
+
+   ```css
+   li {
+     margin-bottom: 15px;
+   }
+   ```
+
+4. Add a media query with the CSS you need to limit the number of thumbnails per line to three when the window width is less than 900px.
+
+   ###### My Solution
+
+   ```css
+   @media (max-width: 900px) {
+     li {
+       width: 33.33%;
+     }
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   @media screen and (max-width: 899px) {
+     li {
+       width: 33.3333%;
+     }
+   }
+   ```
+
+5. Add a media query with the CSS you need to limit the number of thumbnails per line to two when the window width is less than 600px.
+
+   ###### My Solution
+
+   ```css
+   @media screen and (max-width: 599px) {
+     li {
+       width: 50%;
+     }
+   }
+   ```
+
+   ###### LS Solution
+
+   ```css
+   @media screen and (max-width: 599px) {
+     li {
+       width: 50%;
+     }
+   }
+   ```
+
+6. **Challenge** Add a media query and the necessary CSS to move the thumbnails to the right side of the primary photo when the browser's width is 1280 pixels or more. Arrange the thumbnails as a single column. Allow the thumbnails to continue expanding as you increase the window width, but limit the central photo to 950px. If your display can't handle 1280 pixels, choose a smaller value, and make any necessary adjustments. See the [completed project](https://d3jtzah944tvom.cloudfront.net/202/projects/lesson_6/photo_gallery_with_fluid_layout/example2.html) for the expected appearance.
+
+   ###### LS Solution
+
+   ```css
+   @media screen and (min-width: 1280px) {
+     main {
+       max-width: 100%;
+     }
+   
+     figure {
+       display: inline-block;
+       float: left;
+       margin-right: 50px;
+       vertical-align: top;
+       width: 950px;
+     }
+   
+     ul {
+       overflow: hidden;
+     }
+   
+     li {
+       width: 100%;
+     }
+   }
+   ```
+
+---
+
