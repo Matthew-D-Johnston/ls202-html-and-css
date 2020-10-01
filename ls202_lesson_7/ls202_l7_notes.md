@@ -103,3 +103,283 @@ On a Mac, Digital Color Meter (found under Applications, Utilities) can help mea
 
 ## 4. Walkthrough: Using A Photoshop Design File
 
+##### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shutter Bug</title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Shutter Bug</h1>
+      <nav>
+        <ul>
+          <li><a class="active" href="#">Home</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <img class="masthead" src="img_masthead.jpg" />
+      <h2>Welcome to Shutter Bug</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nisl vel eros semper maximus at in quam. Suspendisse ac lectus ac eros pulvinar finibus luctus sed magna. Duis eleifend placerat metus, sed malesuada ipsum rhoncus viverra. Donec vel ullamcorper lorem. Integer accumsan mauris vel ex porttitor, et pharetra nisi finibus. Vestibulum vitae sagittis risus. Fusce ornare tempor purus eget blandit. Quisque eu erat non odio lobortis sollicitudin ultrices nec arcu. Pellentesque eget iaculis purus. Morbi ac libero egestas, maximus ex id, mattis arcu. Praesent tincidunt justo non luctus dapibus.</p>
+
+      <figure>
+        <img src="img_article.jpg" />
+      </figure>
+
+      <p>Pellentesque vel congue dolor. Aenean varius lectus massa, ac pharetra sapien egestas sit amet. Maecenas non ipsum convallis, vestibulum augue eget, molestie urna. Donec a mauris pretium, eleifend felis eu, dapibus mi. Nunc vel imperdiet arcu. Morbi hendrerit rhoncus eleifend. Nullam sodales tincidunt consequat. Maecenas ut laoreet dui, et hendrerit nisi.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nisl vel eros semper maximus at in quam. Suspendisse ac lectus ac eros pulvinar finibus luctus sed magna. Duis eleifend placerat metus, sed malesuada ipsum rhoncus viverra. Donec vel ullamcorper lorem. Integer accumsan mauris vel ex porttitor, et pharetra nisi finibus. Vestibulum vitae sagittis risus. Fusce ornare tempor purus eget blandit. Quisque eu erat non odio lobortis sollicitudin ultrices nec arcu. Pellentesque eget iaculis purus. Morbi ac libero egestas, maximus ex id, mattis arcu. Praesent tincidunt justo non luctus dapibus.</p>
+    </main>
+    <footer>
+      <p>&copy; 2015 Shutter Bug</p>
+    </footer>
+  </body>
+</html>
+```
+
+##### CSS
+
+```css
+@import url("whitespace-reset.css");
+
+body {
+  font: normal 18px "Roboto Condensed", sans-serif;
+  color: #3e606f;
+  background-image: linear-gradient(to bottom, #d1dbbd, #fcfff5);
+  background-repeat: no-repeat;
+}
+
+header {
+  width: 920px;
+  padding: 20px 20px 0 20px;
+  margin: 0 auto;
+}
+
+h1 {
+  float: left;
+  padding: 45px 0 15px 115px;
+  font-size: 36px;
+  font-weight: normal;
+  color: #193441;
+  background: transparent url("logo.png") 0 0 no-repeat;
+}
+
+nav {
+  float: right;
+  padding: 75px 0 0 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 10px 40px 14px 40px;
+  text-decoration: none;
+  color: #91aa9d;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #fcfff5;
+}
+
+nav a.active {
+  color: #fcfff5;
+  background-color: #91aa9d;
+}
+
+main {
+  clear: both;
+  overflow: hidden;
+  width: 960px;
+  padding: 30px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0 5px 5px #b5b5b5;
+}
+
+img.masthead {
+  margin: 0 0 40px 0;
+}
+
+h2 {
+  padding: 0 0 25px 0;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+p {
+  padding: 0 0 20px 0;
+}
+
+figure {
+  float: right;
+  padding: 0 0 0 30px;
+}
+
+footer {
+  width: 960px;
+  padding: 15px 0;
+  margin: 0 auto;
+  font-size: 14px;
+}
+```
+
+---
+
+## 5. On Your Own: Using a PNG Design File
+
+##### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shutter Bug</title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="png_style.css"  />
+  </head>
+  <body>
+    <header>
+      <h1>Shutter Bug</h1>
+      <nav>
+        <ul>
+          <li><a class="active" href="#">Home</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <figure>
+        <img class="main-image" src="img-masthead.jpg" alt="Landscape main image" />
+      </figure>
+      <h2>Welcome to Shutter Bug</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nisl vel eros semper maximus at in quam. Suspendisse ac lectus ac eros pulvinar finibus luctus sed magna. Duis eleifend placerat metus, sed malesuada ipsum rhoncus viverra. Donec vel ullamcorper lorem. Integer accumsan mauris vel ex porttitor, et pharetra nisi finibus. Vestibulum vitae sagittis risus. Fusce ornare tempor purus eget blandit. Quisque eu erat non odio lobortis sollicitudin ultrices nec arcu. Pellentesque eget iaculis purus. Morbi ac libero egestas, maximus ex id, mattis arcu. Praesent tincidunt justo non luctus dapibus.</p>
+
+      <figure class="article-image">
+        <img src="img-article.jpg" alt="desolate tree" />
+      </figure>
+
+      <p>Pellentesque vel congue dolor. Aenean varius lectus massa, ac pharetra sapien egestas sit amet. Maecenas non ipsum convallis, vestibulum augue eget, molestie urna. Donec a mauris pretium, eleifend felis eu, dapibus mi. Nunc vel imperdiet arcu. Morbi hendrerit rhoncus eleifend. Nullam sodales tincidunt consequat. Maecenas ut laoreet dui, et hendrerit nisi.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nisl vel eros semper maximus at in quam. Suspendisse ac lectus ac eros pulvinar finibus luctus sed magna. Duis eleifend placerat metus, sed malesuada ipsum rhoncus viverra. Donec vel ullamcorper lorem. Integer accumsan mauris vel ex porttitor, et pharetra nisi finibus. Vestibulum vitae sagittis risus. Fusce ornare tempor purus eget blandit. Quisque eu erat non odio lobortis sollicitudin ultrices nec arcu. Pellentesque eget iaculis purus. Morbi ac libero egestas, maximus ex id, mattis arcu. Praesent tincidunt justo non luctus dapibus.</p>
+    </main>
+    <footer>
+      <p>&copy; 2015 Shutter Bug</p>
+    </footer>
+  </body>
+</html>
+```
+
+##### CSS
+
+```css
+@import url("whitespace-reset.css");
+
+body {
+  font: normal 18px "Roboto Condensed", sans-serif;
+  background-image: linear-gradient(to bottom, #D1DBBD, #F1F2EA);
+  background-repeat: no-repeat;
+}
+
+header {
+  width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 20px 20px 0 20px;
+  overflow: hidden;
+}
+
+h1 {
+  padding: 50px 0 15px 115px;
+  font-size: 36px;
+  font-weight: normal;
+  color: #193441;
+  background: transparent url("logo.png") 0 0 no-repeat;
+  float: left;
+}
+
+nav {
+  float: right;
+  padding: 85px 0 0 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  color: #91AA9D;
+  background-color: #FCFEF5;
+  width: 130px;
+  text-align: center;
+  padding: 15px 0;
+  border-radius: 10px 10px 0 0;
+}
+
+nav a.active {
+  color: #FCFEF5;
+  background-color: #91AA9D;
+}
+
+main {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  padding: 0 30px 50px 30px;
+  overflow: hidden;
+  box-shadow: 0 5px 5px #B5B5B5;
+}
+
+img.main-image {
+  padding: 30px 0 40px 0;
+}
+
+h2 {
+  color: #3E606F;
+  font-size: 32px;
+  font-weight: normal;
+  padding-bottom: 30px;
+}
+
+p {
+  color: #3E606F;
+  padding-bottom: 20px;
+}
+
+figure.article-image {
+  float: right;
+  padding-left: 35px;
+}
+
+footer {
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+footer p {
+  font-size: 14px;
+  font-weight: normal;
+}
+```
+
+---
+
+## 6. On Your Own: A Company Splash Page
+
