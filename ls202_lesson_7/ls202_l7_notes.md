@@ -383,3 +383,121 @@ footer p {
 
 ## 6. On Your Own: A Company Splash Page
 
+##### My HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SpaceDesign</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="Space Design logo" />
+    </header>
+    <main>
+      <section class="about">
+        <h2><span>&bull;</span>About Us<span>&bull;</span></h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.
+        </p>
+      </section>
+      <section class="founder">
+        <h2><span>&bull;</span>Our Founder<span>&bull;</span></h2>
+        <h3>Admiral Kerning</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#"><img src="icon_twitter.png" alt="Twitter Icon" /></a></li>
+          <li><a href="#"><img src="icon_facebook.png" alt="Facebook Icon" /></a></li>
+          <li><a href="#"><img src="icon_email.png" alt="Email Icon" /></a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
+```
+
+##### My CSS
+
+```css
+@import url("whitespace-reset.css");
+
+body {
+  background-image: url("bg_body.gif");
+  padding-bottom: 145px;
+}
+
+main {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+
+}
+
+header {
+  text-align: center;
+  margin: 160px 0 95px;
+}
+
+h2 {
+  font: normal 36px "Nunito Sans", Helvetica, sans-serif;
+  color: #45494d;
+  text-align: center;
+  padding: 110px 0 40px;
+}
+
+h2 span {
+  color: #2f2840;
+  padding: 0 28px;
+}
+
+section.founder {
+  margin-top: 40px;
+  padding-bottom: 70px;
+}
+
+h3 {
+  font: normal 24px "Nunito Sans", Helvetica, sans-serif;
+  color: #3e98b2;
+  text-align: center;
+  padding-bottom: 35px;
+}
+
+p {
+  font: normal 20px "Nunito Sans", Helvetica, sans-serif;
+  color: #45494d;
+  text-align: center;
+  padding: 0 95px;
+}
+
+footer {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #e7e7e7;
+}
+
+nav {
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  padding: 32px 60px;
+}
+
+a {
+  display: block;
+}
+```
+
+---
+
