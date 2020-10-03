@@ -499,5 +499,30 @@ a {
 }
 ```
 
+### Challenge
+
+If you want an additional challenge, try changing the page layout to a variable width by using a combination of min-width and max-width CSS properties. As you resize the browser window, the content should adjust in width to match the minimum and maximum widths.
+
+###### My CSS Additions
+
+```css
+body {
+  max-width: 1400px;
+  min-width: 800px;
+}
+
+main {
+  width: 71.4%;
+}
+
+footer {
+  width: 71.4%;
+}
+```
+
 ---
+
+## 7. Improving Your HTML and CSS
+
+## 8. On Your Own: Company Site
 
