@@ -2,21 +2,22 @@
 
 body {
   font: normal 16px Avenir, Nunito, Arial, sans-serif;
-  width: 1200px;
+  width: 1450px;
 }
 
 header {
   background-image: url("images/bg_body.gif");
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 header img {
-  margin: 135px 0 110px;
+  margin: 135px 0 125px;
 }
 
 header nav {
   margin: 0 28%;
+  padding: 0 30px;
   display: flex;
   justify-content: space-around;
 }
@@ -39,7 +40,7 @@ footer {
 
 footer p {
   text-align: center;
-  padding: 0 8px 40px;
+  padding: 0 150px 40px;
   font-size: 20px;
   color: #b1b1b1;
 }
@@ -47,4 +48,5 @@ footer p {
 footer nav {
   display: flex;
   justify-content: space-between;
+  padding: 0 150px;
 }
