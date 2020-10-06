@@ -1,4 +1,4 @@
-##### WLS202 HTML and CSS > Lesson 7: Design Files
+##### LS202 HTML and CSS > Lesson 7: Design Files
 
 ---
 
@@ -525,4 +525,6 @@ footer {
 ## 7. Improving Your HTML and CSS
 
 ## 8. On Your Own: Company Site
+
+## 9. On Your Own: Web Store Catalog
 
