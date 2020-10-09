@@ -66,3 +66,10 @@ figcaption {
   padding: 25px 0 0 0;
 }
 
+input[type="checkbox"] { display: none; }
+input:checked + figure img {
+  width: 450px;
+}
+
+
+
