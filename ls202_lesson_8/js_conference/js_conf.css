@@ -11,6 +11,7 @@ nav {
   background: #FFFFFF;
   width: 100%;
   border-top: 10px solid #F5F5F5;
+  border-bottom: 1px solid #F5F5F5;
 }
 
 nav ul {
@@ -36,7 +37,7 @@ nav li {
 
 header {
   position: relative;
-  top: 55px;
+  top: 53px;
   z-index: 1;
   height: 428px;
   background-image: url("images/js_conference.png");
@@ -60,10 +61,10 @@ h2 {
 
 h3 {
   font-family: "Open Sans";
-  font-size: 48px;
-  font-weight: lighter;
+  font-size: 46px;
+  font-weight: 100;
   color: #444444;
-  margin: 0 0 48px 0;
+  margin: 0 0 40px 0;
 }
 
 header img {
@@ -79,13 +80,15 @@ main {
 section {
   border-bottom: 1px solid #EFEFEF;
   margin: 0 30px;
-  padding: 70px 0 70px 0;
+  padding: 65px 0 65px 0;
 }
 
 section a.button {
   text-decoration: none;
   color: #ffffff;
+  font-family: "Open Sans";
   font-weight: bold;
+  font-size: 18px;
   padding: 12px 30px;
   margin: 10px 0 0 0;
   background-color: #3C8105;
@@ -99,4 +102,83 @@ section a.button:hover {
 p {
   color: #444444;
   font-weight: lighter;
+}
+
+section#speakers {
+  overflow: hidden;
+  /*display: flex;
+  flex-direction: column;*/
+}
+
+#speakers img {
+  width: 280px;
+}
+
+#speakers ul {
+  margin: 0 auto;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+#speakers li {
+  float: left;
+  height: 380px;
+  margin: 0 0 10px 0;
+
+}
+
+#speakers li div.main {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  margin: 0 7.5px 10px 7.5px;
+  border: 1px solid #E8E8E8;
+  transition: .5s ease;
+}
+
+.main h4 {
+  margin: 35px 0 8px 0;
+  color: #3C8105;
+  font-family: "Open Sans";
+  font-weight: bolder;
+  font-size: 24px;
+
+}
+
+#speakers p {
+  font-family: "Open Sans";
+  font-weight: lighter;
+}
+
+div.overlay {
+  width: 280px;
+  height: 380px;
+  margin: 0 7.5px 10px 7.5px;
+  opacity: 0;
+  background: black;
+  position: relative;
+  bottom: 396px;
+  left: 1px;
+  transition: .5s ease;
+}
+
+div.overlay p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: lighter;
+  line-height: 1rem;
+  margin: 0 20px 10px 20px;
+}
+
+div.overlay h4 {
+  margin: 15px 0 8px 0;
+  padding: 10px;
+  color: #3C8105;
+  font-family: "Open Sans";
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+li div.overlay:hover {
+  opacity: 0.90;
 }
