@@ -106,12 +106,11 @@ p {
 
 section#speakers {
   overflow: hidden;
-  /*display: flex;
-  flex-direction: column;*/
 }
 
 #speakers img {
-  width: 280px;
+  /*width: 280px;*/
+  width: 100%;
 }
 
 #speakers ul {
@@ -150,6 +149,10 @@ section#speakers {
   font-weight: lighter;
 }
 
+.main p {
+  margin: 0 5px;
+}
+
 div.overlay {
   width: 280px;
   height: 380px;
@@ -181,4 +184,43 @@ div.overlay h4 {
 
 li div.overlay:hover {
   opacity: 0.90;
+}
+
+table {
+  margin: 0 auto;
+  width: 70%;
+  border-top: 1px solid #F5F5F5;
+}
+
+table img {
+  width: 130px;
+}
+
+td {
+  text-align: left;
+  padding: 15px 10px;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 25px;
+}
+
+table a {
+  text-decoration: none;
+  font: bolder 18px "Open Sans";
+  display: block;
+  color: #3C8105;
+  margin: 7px 0 0 0;
+}
+
+table a:hover {
+  text-decoration: underline;
+}
+
+table span {
+  font-size: 9px;
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
+  background: #EEEEEE;
+  padding: 1px 4px;
+  border: 1px solid #AAAAAA;
 }
