@@ -224,3 +224,62 @@ table span {
   padding: 1px 4px;
   border: 1px solid #AAAAAA;
 }
+
+section#location article,
+section#call-for-papers article {
+  width: 70%;
+  margin: 0 auto;
+}
+
+section#location h5 {
+  text-align: left;
+  padding: 0 5px 5px 5px;
+}
+
+section#location p,
+section#call-for-papers p {
+  text-align: left;
+  padding: 0 5px 15px 5px;
+  line-height: 1.5rem;
+}
+
+section#call-for-papers a.button {
+  margin-top: 0;
+}
+
+section dl {
+  width: 70%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+section dt {
+  margin: 0 5px 0 5px;
+  font: bold 18px "Open Sans";
+  /*font-size: 20px;*/
+}
+
+section ul.platinum {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section ul.gold {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section ul.silver {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section ul.support {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+section li {
+  margin: 0 20px 0 0;
+}
