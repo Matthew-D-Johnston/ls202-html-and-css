@@ -1,0 +1,57 @@
+@import url("whitespace-reset.css");
+
+body {
+  font: normal 16px Helvetica, Arial, sans-serif;
+  color: #060606;
+  display: flex;
+}
+
+nav {
+  width: 335px;
+  height: auto;
+  background: #464f77;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    display: none;
+  }
+}
+
+h1 {
+  display: inline-block;
+  font-size: 21px;
+  margin: 75px 15px 45px 32px;
+}
+
+figure.add-todo {
+  margin: 0 0 15px 32px;
+}
+
+figcaption {
+  display: inline-block;
+}
+
+figure.add-todo img {
+  margin: 0 15px 0 0;
+}
+
+ul.todo-items {
+  margin: 0 0 0 20px;
+}
+
+ul.todo-items li {
+  display: flex;
+  border-top: 1px solid #e7e7e7;
+  padding: 15px 10px;
+}
+
+button {
+  border: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+}
