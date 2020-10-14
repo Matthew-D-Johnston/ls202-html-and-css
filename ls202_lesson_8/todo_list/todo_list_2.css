@@ -3,13 +3,12 @@
 body {
   font: normal 16px Helvetica, Arial, sans-serif;
   color: #060606;
-  display: flex;
-  /*width: 100vw;*/
+  display: grid;
+  grid-template-columns: 335px auto 100px;
   height: 100vh;
 }
 
 nav {
-  width: 335px;
   background: #464f77;
 }
 
@@ -27,13 +26,10 @@ h2 {
   font-size: 18px;
   font-weight: lighter;
   margin: 0 0 0 10px;
-
 }
 
 main {
   background: #fff;
-  width: 76.5%;
-  outline: 1px solid blue;
 }
 
 main p {
@@ -52,12 +48,17 @@ main p {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    display: flex;
+  }
+
   nav {
     display: none;
   }
 
   main {
     width: 100%;
+    padding: 0 100px 0 0;
   }
 }
 
@@ -86,7 +87,7 @@ figure.add-todo figcaption {
 
 
 ul.todo-items {
-  margin: 0 100px 0 20px;
+  margin: 0 0 0 20px;
 }
 
 ul.todo-items li {

@@ -3,17 +3,18 @@
   <head>
     <title>Todo List</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="todo_list.css" />
+    <!-- <link rel="stylesheet" href="todo_list.css" /> -->
+    <link rel="stylesheet" href="todo_list_2.css" />
   </head>
   <body>
     <nav>
       <ul>
-        <li>
+        <li class="all-todos">
           <table class="todo">
             <thead>
               <tr>
-                <th></th>
-                <th>All Todos</th>
+                <th><img src="images/all-todos.png" alt="All Todos List Icon" /></th>
+                <th><h2>All Todos</h2></th>
                 <th>18</th>
               </tr>
             </thead>
@@ -47,6 +48,7 @@
           </table>
         </li>
         <li>
+          <img src="images/done.png" alt="Completed Icon" />
           <h2>Completed</h2>
           <ul>
             <li>02/15</li>
@@ -59,7 +61,7 @@
       </ul>
     </nav>
     <main>
-      <h1>02/16</h1><span>8</span>
+      <h1>02/16</h1><p>8</p>
       <figure class="add-todo">
         <img src="images/plus.png" alt="add item" />
         <figcaption>Add new to do</figcaption>
