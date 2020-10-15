@@ -139,7 +139,7 @@ h1 {
   display: inline-block;
   font-size: 21px;
   font-weight: lighter;
-  margin: 27px 22px 45px 32px;
+  margin: 73px 22px 45px 2px;
 }
 
 figure.add-todo {
@@ -208,14 +208,20 @@ button:focus {
 
 /* New Toggle Code */
 
-div.toggle {
-  /*display: none;*/
+/*div.toggle {
   visibility: hidden;
-  /*position: relative;*/
+  position: relative;
   margin: 22px 0 0 32px;
+}*/
+
+label {
+  position: relative;
+  top: -40px;
+  left: 32px;
+  visibility: hidden;
 }
 
-div.toggle img {
+label > img {
   width: 25px;
   height: 20px;
 }
@@ -235,15 +241,22 @@ div.toggle img {
 
   main {
     width: 100%;
-    padding: 0 100px 0 0;
+    padding: 0 4rem 0 0;
   }
 
-  div.toggle {
-    /*display: unset;*/
+  label {
     visibility: visible;
   }
 
-  nav + main > div > input#nav-toggle:checked {
-    display: block;
+  #nav-toggle:checked + nav {
+    display: flex;
+    min-width: 335px;
   }
+
+  #nav-toggle:checked + nav + main {
+    max-width: 37%;
+    min-width: 34%;
+    padding: 0;
+  }
+
 }
