@@ -118,6 +118,7 @@ nav li:nth-child(2) ul li {
 
 main {
   background: #fff;
+  position: relative;
 }
 
 main p {
@@ -211,6 +212,7 @@ label.nav-toggle {
   top: -40px;
   left: 32px;
   visibility: hidden;
+  z-index: 1;
 }
 
 label.nav-toggle > img {
@@ -252,4 +254,50 @@ label.nav-toggle > img {
     padding: 0;
   }
 
+}
+
+div.modal {
+  position: absolute;
+  top: 0;
+  right: -99px;
+  left: 0;
+  bottom: 1px;
+  background: black;
+  opacity: 0.2;
+  visibility: hidden;
+}
+
+aside {
+  position: absolute;
+  top: 0;
+  right: -99px;
+  left: 0;
+  bottom: 1px;
+  /*outline: 1px solid red;*/
+  visibility: hidden;
+}
+
+ul.modal {
+  margin: 105px 15% 0 105px;
+  padding: 50px 35px;
+  /*outline: 1px solid green;*/
+  background: #fff;
+  opacity: 1.0;
+  width: auto;
+}
+
+.modal-toggle {
+  cursor: pointer;
+}
+
+#modal-toggle {
+  display: none;
+}
+
+#modal-toggle:checked + div {
+  visibility: visible;
+}
+
+#modal-toggle:checked + div + aside {
+  visibility: visible;
 }
