@@ -277,14 +277,59 @@ aside {
   visibility: hidden;
 }
 
-ul.modal {
-  margin: 105px 15% 0 105px;
+form.modal {
+  margin: 105px 35% 0 105px;
   padding: 50px 35px;
   /*outline: 1px solid green;*/
   background: #fff;
   opacity: 1.0;
   width: auto;
 }
+
+form.modal fieldset {
+  margin: 0 0 20px 0;
+}
+
+form.modal label {
+  display: inline-block;
+  width: 100px;
+}
+
+textarea {
+  width: 75%;
+}
+
+#item-title {
+  width: 75%;
+}
+
+select {
+  width: 23.6%;
+  padding: 8px;
+  -webkit-appearance: none;
+  background: 95% url(images/select.png) no-repeat;
+}
+
+fieldset.buttons {
+  padding: 0 0 0 105px;
+}
+
+fieldset.buttons input {
+  display: inline-block;
+  margin-right: 10px;
+  width: 40%;
+  height: auto;
+  min-height: 30px;
+  color: #fff;
+  background: #148fd5;
+  border: none;
+  border-radius: 5px;
+}
+
+fieldset.description label {
+  vertical-align: top;
+}
+
 
 .modal-toggle {
   cursor: pointer;
